@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/yaptot/ccapdev-mp-chunchunmaru/issues"
   },
-  "homepage": "https://github.com/yaptot/ccapdev-mp-chunchunmaru#readme"
+  "homepage": "https://github.com/yaptot/ccapdev-mp-chunchunmaru#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.6",
+    "nodemon": "^2.0.4"
+  }
 }
