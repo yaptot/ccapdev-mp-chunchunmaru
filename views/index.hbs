@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>apdev-mp2</title>
+</head>
+
+<body>
+    {{#if user}}
+        {{> navbar-user}}
+    {{else}}
+        {{> navbar}}
+    {{/if}}
+    <div class="container">
+        <div id="home-content">
+            <div class="row" style="text-align: center;margin-top: 50px;">
+                <div class="col"><img class="d-inline-block" src="../assets/img/icons/logov1.png"></div>
+            </div>
+            <div id="top-rated">
+                <h3 class="text-left head-home">TOP RATED</h3>
+                <div class="home-cards">
+                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg">
+                        <div class="card-body">
+                            <h5 class="card-heading">Fate/stay night</h5>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Valorant.jpg">
+                        <div class="card-body">
+                            <h5 class="card-heading">VALORANT</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="most-popular">
+                <h3 class="text-left head-home">MOST PLAYED</h3>
+                <div class="home-cards">
+                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg">
+                        <div class="card-body">
+                            <h5 class="card-heading">Fate/stay night</h5>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Valorant.jpg">
+                        <div class="card-body">
+                            <h5 class="card-heading">VALORANT</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

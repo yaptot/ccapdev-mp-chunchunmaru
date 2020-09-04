@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>apdev-mp2</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex align-items-end banner-content"><img class="d-inline-block prof-page-pic" src="../assets/img/icons/default.png">
+            <h1 class="d-inline-block banner-heading">yaptot</h1>
+        </div>
+    </div>
+    <div class="prof-nav">
+        <div class="text-center container prof-nav-content"><a class="prof-link" href="#">Profile</a><a class="prof-link" href="#">Game List</a></div>
+    </div>
+    <div class="container">
+        <h1 class="list-heading">Playing</h1>
+        <div class="item-table playing-table">
+            <div class="row list-head-row">
+                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
+                <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
+            </div>
+            {{#each playing}}
+            <div class="row list-head-row">
+                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                {{#each this.game.platforms}}
+                    <span class="item-title">{{this}}</span>
+                {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <h1 class="list-heading">Completed</h1>
+        <div class="item-table completed-table" style="border-left-style: solid;border-left-color: #39a0ed;">
+            <div class="row list-head-row">
+                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
+                <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
+            </div>
+            {{#each completed}}
+            <div class="row list-head-row">
+                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                {{#each this.game.platforms}}
+                    <span class="item-title">{{this}}</span>
+                {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <h1 class="list-heading">Planning</h1>
+        <div class="item-table planning-table">
+            <div class="row list-head-row">
+                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
+                <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
+            </div>
+            {{#each planning}}
+            <div class="row list-head-row">
+                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                {{#each this.game.platforms}}
+                    <span class="item-title">{{this}}</span>
+                {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <h1 class="list-heading">Dropped</h1>
+        <div class="item-table dropped-table">
+            <div class="row list-head-row">
+                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
+                <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
+            </div>
+            {{#each dropped}}
+            <div class="row list-head-row">
+                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                {{#each this.game.platforms}}
+                    <span class="item-title">{{this}}</span>
+                {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,681 @@
+body {
+  background-color: #20201e;
+  color: #f5f6f7;
+  font-family: Roboto, sans-serif;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  margin-bottom: 50px;
+  background: #2f2f2f;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.options {
+  width: auto;
+  font-size: 17px;
+  font-family: Overpass, sans-serif;
+  padding: 7px;
+  margin-left: 9px;
+  color: #f5f6f7;
+}
+
+#nav-options {
+  text-align: right;
+  padding-right: 50px;
+  padding-top: 2px;
+}
+
+#logo {
+  width: 250px;
+  min-width: 250px;
+  height: 60px;
+}
+
+#search {
+  height: 38px;
+}
+
+#search-nav {
+  color: #f5f6f7;
+  width: 275px;
+  background: #20201e;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 38px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-style: none;
+  border-bottom-style: none;
+}
+
+#home-content {
+  height: 100%;
+}
+
+.head-home {
+  font-family: Overpass, sans-serif;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.card {
+  width: 185px;
+  border-radius: 0px;
+  background-color: rgba(255,255,255,0);
+  border-width: 0px;
+  height: 265px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+}
+
+.card-header:first-child {
+  width: auto;
+  padding: 0px 0px;
+}
+
+.card-img {
+  border-radius: 4px;
+  width: auto;
+  height: 100%;
+  border-style: none;
+}
+
+.card-body {
+  width: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-style: none;
+  border-bottom-style: none;
+  padding: 0px;
+  padding-top: 10px;
+}
+
+button-holder img {
+  postion: relative;
+  left: 0;
+}
+
+.login-clean {
+  padding: 80px 0;
+}
+
+.login-clean form {
+  max-width: 320px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #2f2f2f;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.login-clean .illustration {
+  text-align: center;
+  padding: 0 0 20px;
+  font-size: 100px;
+  color: #13c4a3;
+}
+
+.login-clean form .form-control {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: #f5f6f7;
+  text-indent: 8px;
+  height: 42px;
+  background-color: #2f2f2f;
+  border-bottom: 2px solid #13c4a3;
+  font-family: Roboto, sans-serif;
+}
+
+.login-clean form .btn-primary {
+  background-color: #13c4a3;
+  border: none;
+  border-radius: 4px;
+  padding: 11px;
+  box-shadow: none;
+  margin-top: 26px;
+  text-shadow: none;
+  outline: none !important;
+  font-family: Overpass, sans-serif;
+}
+
+.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
+  background: #179b82;
+}
+
+.login-clean form .btn-primary:active {
+  transform: translateY(1px);
+}
+
+.login-clean form .forgot {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #6f7a85;
+  opacity: 0.90;
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+}
+
+.login-clean form .forgot:hover, .login-clean form .forgot:active {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.register-photo {
+  padding: 80px 0;
+}
+
+.register-photo .image-holder {
+  display: table-cell;
+  width: auto;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background: url(../../assets/img/reg-art.jpg) bottom / cover no-repeat;
+}
+
+.register-photo .form-container {
+  display: table;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.register-photo form {
+  display: table-cell;
+  width: 400px;
+  background-color: #2f2f2f;
+  padding: 40px 60px;
+  color: #505e6c;
+  font-family: Roboto, sans-serif;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@media (max-width:991px) {
+  .register-photo form {
+    padding: 40px;
+  }
+}
+
+.register-photo form h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #f5f6f7;
+}
+
+.register-photo form .form-control {
+  background: #2f2f2f;
+  border: none;
+  border-bottom: 2px solid #39a0ed;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: #f5f6f7;
+  text-indent: 6px;
+  height: 40px;
+}
+
+.register-photo form .form-check {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.register-photo form .btn-primary {
+  background: #39a0ed;
+  border: none;
+  border-radius: 4px;
+  padding: 11px;
+  box-shadow: none;
+  margin-top: 35px;
+  text-shadow: none;
+  outline: none !important;
+  font-family: Overpass, sans-serif;
+}
+
+.register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+  background: #3e90ed;
+}
+
+.register-photo form .btn-primary:active {
+  transform: translateY(1px);
+}
+
+.register-photo form .already {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #6f7a85;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+#page-img {
+  width: 220px;
+}
+
+.desc-p, .review-p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.game-desc {
+  background-color: #2f2f2f;
+  padding: 22px;
+  margin-top: 20px;
+  border-left-style: none;
+  border-radius: 4px;
+  height: 69%;
+}
+
+.game-review {
+  margin-top: 36px;
+  background-color: #2f2f2f;
+  padding: 22px;
+  border-radius: 4px;
+  border-color: #13c4a3;
+}
+
+.gamepage-label {
+  color: #39a0ed;
+  font-weight: 600;
+  font-family: Overpass, sans-serif;
+}
+
+.game-head {
+  color: #3e90d3;
+  font-weight: 600;
+  border-color: #39a0ed;
+  margin-bottom: 10px;
+  font-family: Overpass, sans-serif;
+  font-size: 35px;
+}
+
+.game-publisher {
+  color: #13c4a3;
+  margin-bottom: 10px;
+  font-family: Overpass, sans-serif;
+  font-weight: 600;
+}
+
+#sign-up {
+  background-color: #39a0ed;
+  margin-right: 9px;
+  margin-left: 9px;
+  font-size: 17px;
+  text-align: center;
+  color: #f5f6f7;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-style: none;
+}
+
+#sign-up:hover {
+  background: #3e90d3;
+}
+
+.side-content {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+  padding: 24px;
+  text-align: left;
+}
+
+.genre-span {
+  padding: 8px;
+  border-radius: 30px;
+  background: #13c4a3;
+  margin-right: 10px;
+  color: #20201e;
+  font-size: 14px;
+}
+
+.browse-card-info1 .genre-span {
+  padding: 8px;
+  border-radius: 30px;
+  background: #13c4a3;
+  margin-right: 10px;
+  color: #20201e;
+  font-size: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.browse-card-info1.genre-span {
+  padding: 8px;
+  border-radius: 30px;
+  background: #13c4a3;
+  margin-right: 10px;
+  color: #20201e;
+  font-size: 14px;
+}
+
+.genre-list {
+  margin-top: 11px;
+}
+
+.side-content-span {
+  width: 100%;
+  font-size: 14px;
+}
+
+.add-to-list {
+  color: #f5f6f7;
+  border-radius: 4px;
+  border-style: none;
+  background-color: #39a0ed;
+}
+
+.add-to-list:hover {
+  background: #3e90d3;
+}
+
+.game-score {
+  color: #fff854;
+  font-weight: 600;
+  margin-bottom: 11px;
+  font-family: Overpass, sans-serif;
+  font-size: 19px;
+}
+
+.review-label {
+  color: #13c4a3;
+  font-family: Overpass, sans-serif;
+}
+
+#button-holder {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#image-holder {
+  width: 100%;
+  height: 100%;
+}
+
+.d-block.side-content-headings {
+  color: #39a0ed;
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: Overpass, sans-serif;
+  font-weight: 600;
+}
+
+.genre-span:hover {
+  background: #1a7261;
+  color: #f5f6f7;
+}
+
+.reviewer {
+  color: #13c4a3;
+  font-weight: 600;
+  display: block;
+}
+
+.review-score {
+  color: #fff854;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 3px;
+}
+
+.review-content {
+  margin-top: 30px;
+  border-bottom: 2px solid #1a7261 ;
+}
+
+.review-content.last {
+  border-bottom: 0px;
+}
+
+.card-heading {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Overpass, sans-serif;
+}
+
+.search-cards {
+  min-height: auto;
+  padding: 25px;
+  height: auto;
+}
+
+.form-control.home-search {
+  background-color: #2f2f2f;
+  color: #f5f6f7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  border-style: none;
+  border-bottom: 3px none #13c4a3 ;
+  border-radius: 4px;
+}
+
+.browse-heading {
+  margin-bottom: 20px;
+  font-family: Overpass, sans-serif;
+}
+
+.browse-div {
+  margin-top: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+.browse-card, .list-card {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+  height: 80px;
+  margin-bottom: 24px;
+}
+
+.browse-img {
+  width: 48px;
+  min-width: 48px;
+  height: 60px;
+}
+
+.d-inline-block.browse-card-info1 {
+  margin-left: 20px;
+  width: 50%;
+  padding-top: 0px;
+}
+
+.browse-game-head {
+  font-family: Overpass, sans-serif;
+  font-size: 16px;
+}
+
+.browse-col {
+  padding: 10px;
+}
+
+.browse-genre-span {
+  color: #20201e;
+  background-color: #13c4a3;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-right: 5px;
+}
+
+.options:hover {
+  text-decoration: none;
+  color: #39a0ed;
+}
+
+.prof-page-pic {
+  width: 150px;
+}
+
+.banner-heading {
+  font-size: 19px;
+  font-family: Overpass, sans-serif;
+  padding: 16px;
+}
+
+.banner-content {
+  margin-top: 60px;
+}
+
+.prof-nav {
+  background-color: #2f2f2f;
+  padding: 0px;
+}
+
+.container.prof-nav-content {
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-top: 5px;
+}
+
+.prof-link {
+  color: #f5f6f7;
+  font-size: 19px;
+  font-family: Overpass, sans-serif;
+  margin: 15px;
+}
+
+.prof-link:hover {
+  color: #13c4a3;
+  text-decoration: none;
+}
+
+.list-heading {
+  font-size: 19px;
+  font-family: Overpass, sans-serif;
+  margin-top: 50px;
+  padding-left: 30px;
+}
+
+.row.list-head-row {
+  padding: 15px;
+}
+
+.list-title {
+  height: 43px;
+}
+
+.item-heading {
+  color: #f5f6f7;
+  font-family: Overpass, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.col.title-col {
+  padding-left: 61px;
+}
+
+.item-title:hover {
+  text-decoration: none;
+  color: #f5f6f7;
+}
+
+.item-title {
+  color: #f5f6f7;
+}
+
+.item-table {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+}
+
+.list-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.col.list-img-holder {
+}
+
+.col-xl-8.title-col {
+}
+
+.col-xl-1.text-center {
+}
+
+.col-xl-2.text-center {
+}
+
+.playing-table {
+  border-left: 3px solid #13c4a3 ;
+}
+
+.completed-table {
+}
+
+.planning-table {
+  border-left-style: solid;
+  border-left-color: #fff854;
+}
+
+.dropped-table {
+  border-left-style: solid;
+  border-left-color: #fc3d48;
+}
+
+.navbar-img {
+  width: 42px;
+  border-radius: 50%;
+}
+
+.search-button {
+  height: 38px;
+  background: #39a0ed;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  color: #f5f6f7;
+  border-style: none;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+  width: 50px;
+  font-size: 16px;
+}
+
+.nav-pic {
+  width: 45px;
+  margin-left: 5px;
+}
+
+.search-button:hover {
+  background: #3e90d3;
+}
+
+.warning-div {
+  background: #20201e;
+  border-radius: 4px;
+  padding: 7px;
+  color: #fc3d48;
+}
+
+.add-list-form {
+}
+
+.dropdown-menu {
+  background: #20201e;
+  color: #f5f6f7;
+}
+
+.dropdown-item {
+  color: #f5f6f7;
+}
+
