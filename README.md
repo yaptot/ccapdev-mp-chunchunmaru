@@ -1,4 +1,5 @@
 # ccapdev-mp-chunchunmaru
 You are a boulder, I am a mountain
-NPMs installed:
-cookie-parser,handlebars,express,nodemon,body-parser,express-session
+express/body-parser/cookie-parser/express-session/handlebars
+
+db name = Gamerist

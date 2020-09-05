@@ -1,0 +1,65 @@
+<html>
+    <body>
+        Register
+        <form method="Post" action="Register">
+            <input input="text" placeholder="username" name="username">
+            <input input="text" placeholder="password" name="password">
+            <input input="text" placeholder="password" name="cPass">
+            <input input="text" placeholder="email" name="email">
+            <input type="submit" value="submit">
+        </form>
+        <br><br>
+        Login
+        <form method="Post" action="login">
+            Username:<input input="text" name="username">
+            Password:<input input="text" name="password">
+            <input type="submit" value="submit">
+        </form>
+        <br><br>
+        Add game
+        <form method="POST" action="addgame">
+                <input input="text" placeholder="name" name="name">
+                <input input="text" placeholder="publisher" name="publisher">
+                <input type="date" placeholder="publish" name="publish">
+                <input input="text" placeholder="genre" name="genre">
+                <input input="text" placeholder="filename" name="filename">                
+                <input input="text" placeholder="description" name="description">
+                <input input="text" placeholder="platforms" name="platforms">
+                <input type="submit" value="submit">
+            </form>
+        <br><br>
+
+        Users in database:
+        <div id="usernames">
+            {{#each users}}
+            <div>{{this.username}}</div>
+            
+            {{/each}}
+        </div>
+        Games in database:
+        <div id="games">
+            {{#each games}}
+            <form>
+                <div>name:{{this.name}}</div> To view, click this button<input type="submit" value="submit">
+            </form>
+            
+            {{/each}}
+        </div>
+        <form method="GET" action="viewAllGames">
+                View all games<input type="submit" value="submit">
+        </form>
+        {{#if isLog}}
+            <div>
+                Hello, {{user.username}}
+            </div>
+
+            <form method="GET" action="getList">
+                View Personal List<input type="submit" value="submit">
+            </form>
+            <form method="GET" action="viewProfile">
+                View Profile<input type="submit" value="submit">
+            </form>
+        {{/if}}
+
+    </body>
+</html>
