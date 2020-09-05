@@ -92,4 +92,8 @@ $(document).ready(function() {
              $(".warning-div").css("display", "inline-block");  
          }
     })
+
+    $("button#add-list-toggle").click(function() {
+        $("div#select-container").toggle();
+    })
 })

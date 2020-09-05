@@ -27,10 +27,16 @@
                     <span
                         class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">{{count}}</span>
                         <div id="button-holder">
-                            <form class="add-list-form">
-                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle add-to-list" data-toggle="dropdown" aria-expanded="false" type="button">+ Add to List</button>
-                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Playing</a><a class="dropdown-item" role="presentation" href="#">Completed</a><a class="dropdown-item" role="presentation" href="#">Planning</a><a class="dropdown-item"
-                                            role="presentation" href="#">Dropped</a></div>
+                            <form class="add-list-form" method="POST">
+                                <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">+ Add to List</button>
+                                <div id="select-container">
+                                    <select class="select-status">
+                                        <option value="Playing">Playing</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Planning">Dropped</option>
+                                        <option value="Dropped">Playing</option>
+                                    </select>
+                                    <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
                                 </div>
                             </form>
                         </div>
