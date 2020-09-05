@@ -270,7 +270,6 @@ app.get('/thanos', async (req, res) => {
         }
         
         ave.sort((a, b) => b.aveRating - a.aveRating);
-        console.log(ave);
     } catch (e) {
         console.log(e);
     }
@@ -419,12 +418,15 @@ app.get("/browse",async (req, res)=>{
         games:games
     })
 })
-
+//needs improvement
 app.get("/search",function(req,res){
-    let search = new RegExp (req.query.search,'gi')
+    //let search = new RegExp (req.query.search,'gi')
+    let search = req.query.search
     gameModel.aggregate([{$match: {name: search}}], function (err, data) {
-        res.render("index.hbs", {
+        if(err) console.log(err)
+        res.render("search.hbs", {
             error_search: data.length == 0 ? true : false,
+            search:search,
             searchname: JSON.parse(JSON.stringify(data))
         })
     })
@@ -465,30 +467,31 @@ app.post("/addgame",function(req,res){
 
 })
 
-app.post("/addList",async function(req, res){
-    let game = req.body.game
+app.post("/addList/:_id",async function(req, res){
+    let game = req.params._id
     let status = req.body.status
+    console.log(game)
+    console.log(status)
 
     let user = {username:req.session.user.username}
-    let dbGame = await gameModel.findOne({name:game})
-
+    let dbGame = await gameModel.findOne({_id:game})
+    console.log("db"+dbGame)
     userModel.findOneAndUpdate(user, {$push: {gameList: {game: dbGame, status: status, rating:null, review:null}}}, {useFindAndModify: false},async function(err){
         if(err){
            console.log(err) 
         }
         else{
             req.session.user = await userModel.findOne({username:user.username})
-            res.render("index.hbs",{
-                user:req.session.user
-            })
+            res.redirect("/viewGame/"+game)
         }
     })
 })
 
 app.get("/getList",async function(req, res){ //req.session.user.username
-    let user = req.session.user
+    let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game")
+    req.session.user = user
     console.log(user)
-    res.render("../views/tests/list.hbs",{
+    res.render("myList",{
         user:user
     })
 })
@@ -543,6 +546,14 @@ app.get("/viewGame/:_id",async  function(req,res){
     var users = await userModel.find({}).populate("gameList.game");
     var dbgames = await gameModel.find({});
     var ratings = [], ave = [];
+    let notListed = true
+    if(req.session.user){
+    let user = await userModel
+                    .findOne({username:req.session.user.username})
+                    .populate("gameList.game")
+        if(user.gameList.filter(e => e.game._id === game))
+            notListed = false
+    }
     try{
         for (let i = 0; i < dbgames.length; i++) {
             ratings.push({game: dbgames[i].name, rating: 0, count: 0});
@@ -557,8 +568,6 @@ app.get("/viewGame/:_id",async  function(req,res){
         }
         
         ave.sort((a, b) => b.aveRating - a.aveRating);
-        console.log(dbgame.publish)
-        console.log(ave);
     } catch (e) {
         console.log(e);
     }
@@ -567,7 +576,8 @@ app.get("/viewGame/:_id",async  function(req,res){
         user:req.session.user,
         game:JSON.parse(JSON.stringify(dbgame)),
         aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
-        count:ave.filter(e => e.game === dbgame.name)[0].count
+        count:ave.filter(e => e.game === dbgame.name)[0].count,
+        notListed:notListed
     })
 })
 

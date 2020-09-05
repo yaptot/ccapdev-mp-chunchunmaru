@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -28,10 +29,13 @@
                     <span
                         class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">{{count}}</span>
                         <div id="button-holder">
-                            <form class="add-list-form" method="POST">
+                            {{#if user}}
+                            {{#if notListed}}
+                            <form class="add-list-form" method="POST" action="/addList/{{{game._id}}}">
                                 <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">+ Add to List</button>
                                 <div id="select-container">
-                                    <select class="select-status">
+                                    <select name="status" class="select-status">
+
                                         <option value="Playing">Playing</option>
                                         <option value="Completed">Completed</option>
                                         <option value="Planning">Dropped</option>
@@ -40,6 +44,8 @@
                                     <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
                                 </div>
                             </form>
+                            {{/if}}
+                            {{/if}}
                         </div>
                 </div>
             </div>

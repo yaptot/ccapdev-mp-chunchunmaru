@@ -8,21 +8,23 @@
 </head>
 
 <body>
+    {{#if user}}
+        {{> navbar-user}}
+    {{else}}
+        {{> navbar}}
+    {{/if}}
     <div class="container">
         <div id="home-content">
             <div id="search-results">
-                <h3 class="text-left head-home">Search results for "{{tite}}"</h3>
+                <h3 class="text-left head-home">{{#if error_search}}No results found for"{{search}}"{{else}}Search results for "{{search}}"{{/if}}</h3>
                 <div class="d-flex justify-content-start flex-wrap justify-content-xl-start search-cards">
-                    <div class="card"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg">
+                    {{#each searchname}}
+                    <div class="card"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
                         <div class="card-body">
-                            <h5 class="card-heading">Fate/stay night</h5>
+                            <h5 class="card-heading">{{this.name}}</h5>
                         </div>
                     </div>
-                    <div class="card"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Valorant.jpg">
-                        <div class="card-body">
-                            <h5 class="card-heading">VALORANT</h5>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
