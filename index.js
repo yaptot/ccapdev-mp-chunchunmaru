@@ -545,6 +545,14 @@ app.get("/viewGame/:_id",async  function(req,res){
     var users = await userModel.find({}).populate("gameList.game");
     var dbgames = await gameModel.find({});
     var ratings = [], ave = [];
+    let notListed = true
+    if(req.session.user){
+    let user = await userModel
+                    .findOne({username:req.session.user.username})
+                    .populate("gameList.game")
+        if(user.gameList.filter(e => e.game._id === game))
+            notListed = false
+    }
     try{
         for (let i = 0; i < dbgames.length; i++) {
             ratings.push({game: dbgames[i].name, rating: 0, count: 0});
@@ -567,7 +575,8 @@ app.get("/viewGame/:_id",async  function(req,res){
         user:req.session.user,
         game:JSON.parse(JSON.stringify(dbgame)),
         aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
-        count:ave.filter(e => e.game === dbgame.name)[0].count
+        count:ave.filter(e => e.game === dbgame.name)[0].count,
+        notListed:notListed
     })
 })
 
