@@ -337,7 +337,7 @@ app.get("/register", (req, res) => {
 })
 
 app.post("/register", async (req, res) => {
-    let {username, password, email, cPass} = req.body
+    let {username, password, email} = req.body
     let userExists = await userModel.findOne({
         username: username
     })
@@ -348,39 +348,21 @@ app.post("/register", async (req, res) => {
         email: email,
         gameList: []
     })
-    if(email == ""){
-        res.render("register", {
-            error:"Please enter an email"
-        })
-    }else if (username == "") {
-        res.render("register", {
-            error:"Please enter a username"
-        })
+    if (userExists) {
+        res.status(403).send({msg: "User already exists!"})
     } else {
-        if (userExists) {
-            res.render("register", {
-                error: "User already exists!"
-            })
-        } else if (password != cPass) {
-            res.render("register", {
-                error: "Passwords do not match!"
-            })
-        } else {
-            doc.save(function (error) {
-                if (error) {
-                    return console.error(error)
-                } else {
-                    res.redirect("/")
-                    console.log(username + " added")
-                }
-            })
-        }
+        doc.save(function (error) {
+            if (error) {
+                return console.error(error)
+            } else {
+                res.status(200).send({msg: "yehey"})
+            }
+        })
     }
 })
 
 app.get("/login", (req, res) => {
-    res.render("login", {
-    })
+    res.render("login")
 })
 
 app.post("/login", async (req, res) => {
@@ -395,14 +377,13 @@ app.post("/login", async (req, res) => {
         }).populate("gameList.game")
         if (result) {
             req.session.user = result
-            res.redirect("/")
+            res.status(200).send({msg: "Log-in successful!"})
         } else {
-            res.render("login", {
-                error: "Invalid username/password!"
-            })
+            res.status(403).send({msg: "Incorrect username/password!"})
         }
     }
 })
+
 
 app.get("/signout", (req, res)=>{
     req.session.destroy()

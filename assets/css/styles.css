@@ -1,3 +1,4 @@
+  
 body {
   background-color: #20201e;
   color: #f5f6f7;
@@ -76,7 +77,12 @@ body {
   margin-bottom: 50px;
 }
 
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+.browse-a {
+  color: #f5f6f7
+}
+
+.browse-a:hover {
+  color: #f5f6f7;
 }
 
 .card-header:first-child {
@@ -604,23 +610,8 @@ button-holder img {
   border-radius: 4px;
 }
 
-.col.list-img-holder {
-}
-
-.col-xl-8.title-col {
-}
-
-.col-xl-1.text-center {
-}
-
-.col-xl-2.text-center {
-}
-
 .playing-table {
   border-left: 3px solid #13c4a3 ;
-}
-
-.completed-table {
 }
 
 .planning-table {
@@ -665,9 +656,9 @@ button-holder img {
   border-radius: 4px;
   padding: 7px;
   color: #fc3d48;
-}
-
-.add-list-form {
+  display: none;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .dropdown-menu {
@@ -678,4 +669,3 @@ button-holder img {
 .dropdown-item {
   color: #f5f6f7;
 }
-
