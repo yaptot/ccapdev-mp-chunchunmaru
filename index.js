@@ -266,7 +266,7 @@ app.get('/thanos', async (req, res) => {
                     ratings[i].count++;
                 }
             }
-            ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count});
+            ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
         }
         
         ave.sort((a, b) => b.aveRating - a.aveRating);
@@ -281,7 +281,7 @@ app.get("/", async (req, res)=>{
     try {
         var users = await userModel.find({}).populate("gameList.game")
         var dbgames = await gameModel.find({})
-        var ratings = [], ave = [];
+        var ratings = [], games = [];
         
         for (let i = 0; i < dbgames.length; i++) {
             ratings.push({game: dbgames[i].name, rating: 0, count: 0});
@@ -292,16 +292,20 @@ app.get("/", async (req, res)=>{
                     ratings[i].count++;
                 }
             }
-            ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count});
+            games.push({_id:dbgames[i]._id, game: dbgames[i].name, filename: dbgames[i].filename, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
         }
         
-        ave.sort((a, b) => b.aveRating - a.aveRating)
+        ave = games.sort((a, b) => b.aveRating - a.aveRating)
+        count = games.sort((a, b) =>b.count - a.count)
+        ave = ave.slice(0, 5)
+        count = games.slice(0, 5)
     } catch (e) {
         console.log(e);
     }
     res.render("index",{
         user:req.session.user,
-        games:ave
+        ave:ave,
+        count:count
     })
     // res.render("../views/tests/index",{
     //     users:JSON.parse(JSON.stringify(users)),
@@ -391,10 +395,7 @@ app.post("/login", async (req, res) => {
         }).populate("gameList.game")
         if (result) {
             req.session.user = result
-            res.render("index", {
-                isLogged: true,
-                user: JSON.parse(JSON.stringify(result))
-            })
+            res.redirect("/")
         } else {
             res.render("login", {
                 error: "Invalid username/password!"

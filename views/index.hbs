@@ -21,31 +21,25 @@
             <div id="top-rated">
                 <h3 class="text-left head-home">TOP RATED</h3>
                 <div class="home-cards">
-                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg">
+                    {{#each ave}}
+                    <div class="card d-inline-block"><a href="/viewGame/{{{this._id}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}"></a>
                         <div class="card-body">
-                            <h5 class="card-heading">Fate/stay night</h5>
+                            <h5 class="card-heading">{{this.game}}</h5>
                         </div>
                     </div>
-                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Valorant.jpg">
-                        <div class="card-body">
-                            <h5 class="card-heading">VALORANT</h5>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
             <div id="most-popular">
                 <h3 class="text-left head-home">MOST PLAYED</h3>
                 <div class="home-cards">
-                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg">
+                    {{#each count}}
+                    <div class="card d-inline-block"><a href="/viewGame/{{{this._id}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}"></a>
                         <div class="card-body">
-                            <h5 class="card-heading">Fate/stay night</h5>
+                            <h5 class="card-heading">{{this.game}}</h5>
                         </div>
                     </div>
-                    <div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="../assets/img/sample/Valorant.jpg">
-                        <div class="card-body">
-                            <h5 class="card-heading">VALORANT</h5>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
