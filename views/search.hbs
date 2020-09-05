@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>apdev-mp2</title>
+</head>
+
+<body>
+    {{#if user}}
+        {{> navbar-user}}
+    {{else}}
+        {{> navbar}}
+    {{/if}}
+    <div class="container">
+        <div id="home-content">
+            <div id="search-results">
+                <h3 class="text-left head-home">{{#if error_search}}No results found for"{{search}}"{{else}}Search results for "{{search}}"{{/if}}</h3>
+                <div class="d-flex justify-content-start flex-wrap justify-content-xl-start search-cards">
+                    {{#each searchname}}
+                    <div class="card"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
+                        <div class="card-body">
+                            <h5 class="card-heading">{{this.name}}</h5>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

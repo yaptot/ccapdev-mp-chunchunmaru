@@ -81,7 +81,7 @@ $(document).ready(function() {
                 data: form, 
                 success: function(result, s) {
                     alert(result.msg); 
-                    window.location.href ='/';
+                    window.location.href ='/';     
                 },
                 error: function(xhr, s) {
                     alert(xhr.responseJSON.msg);
@@ -91,5 +91,9 @@ $(document).ready(function() {
          else {
              $(".warning-div").css("display", "inline-block");  
          }
+    })
+
+    $("button#add-list-toggle").click(function() {
+        $("div#select-container").toggle();
     })
 })
