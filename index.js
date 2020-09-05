@@ -546,13 +546,15 @@ app.get("/viewGame/:_id",async  function(req,res){
     var users = await userModel.find({}).populate("gameList.game");
     var dbgames = await gameModel.find({});
     var ratings = [], ave = [];
-    let notListed = true
+    let notListed = false
     if(req.session.user){
     let user = await userModel
                     .findOne({username:req.session.user.username})
                     .populate("gameList.game")
-        if(user.gameList.filter(e => e.game._id === game))
-            notListed = false
+        if(!(user.gameList.filter(e=> e.game.name === dbgame.name).length)){
+            console.log("in")
+            notListed=true
+        }
     }
     try{
         for (let i = 0; i < dbgames.length; i++) {
@@ -571,7 +573,6 @@ app.get("/viewGame/:_id",async  function(req,res){
     } catch (e) {
         console.log(e);
     }
-
     res.render("gamePage",{
         user:req.session.user,
         game:JSON.parse(JSON.stringify(dbgame)),
