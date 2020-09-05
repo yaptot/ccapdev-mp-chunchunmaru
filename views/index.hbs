@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>apdev-mp2</title>
+</head>
+
+<body>
+    {{#if user}}
+        {{> navbar-user}}
+    {{else}}
+        {{> navbar}}
+    {{/if}}
+    <div class="container">
+        <div id="home-content">
+            <div class="row" style="text-align: center;margin-top: 50px;">
+                <div class="col"><img class="d-inline-block" src="../assets/img/icons/logov1.png"></div>
+            </div>
+            <div id="top-rated">
+                <h3 class="text-left head-home">TOP RATED</h3>
+                <div class="home-cards">
+                    {{#each ave}}
+                    <div class="card d-inline-block"><a href="/viewGame/{{{this._id}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}"></a>
+                        <div class="card-body">
+                            <h5 class="card-heading">{{this.game}}</h5>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div id="most-popular">
+                <h3 class="text-left head-home">MOST PLAYED</h3>
+                <div class="home-cards">
+                    {{#each count}}
+                    <div class="card d-inline-block"><a href="/viewGame/{{{this._id}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}"></a>
+                        <div class="card-body">
+                            <h5 class="card-heading">{{this.game}}</h5>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
