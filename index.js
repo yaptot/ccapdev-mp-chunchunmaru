@@ -69,9 +69,8 @@ app.get("/populate",e =>{
         email: "eugeneperez123@gmail.com",
         gameList:[]
     }]).then(function(){
-        console.log("Is it in yet?")
+        console.log("Is it in yet?(1)")
     })
-    gameModel.collection.drop()
     gameModel.insertMany([{
         name:"VALORANT",
         publisher:"Riot",
@@ -117,7 +116,7 @@ app.get("/populate",e =>{
         publisher:"SCS Software",
         publish:new Date("2012-10-19"),
         genre:["Vehicle Simulation"],
-        filename:"../assets/img/sample/ets2.png",//
+        filename:"../assets/img/sample/ETS2.jpg",//
         description:"Euro Truck Simulator 2 is a truck simulator game developed and published by SCS Software for Microsoft Windows, Linux, and macOS and was initially released as open development on 19 October 2012. The game is a direct sequel to the 2008 game Euro Truck Simulator and it is the second video game in the Truck Simulator series. The basic premise of the game is that the player can drive one of a choice of articulated trucks across a condensed depiction of Europe, picking up cargo from various locations and delivering it. As the game progresses, it is possible for the player to buy more vehicles and depots, as well as hire other drivers to work for them.",
         platforms:["PC"]
     },{
@@ -125,7 +124,7 @@ app.get("/populate",e =>{
         publisher:"Devolver Digital",
         publish:new Date("2020-08-04"),
         genre:["Battle Royale", "Platformer" ],
-        filename:"../assets/img/sample/fallguys.png",//
+        filename:"../assets/img/sample/fallGuys.jpg",//
         description:"Fall Guys: Ultimate Knockout is a 2020 platformer battle royale game developed by Mediatonic and published by Devolver Digital. It was announced at E3 in June 2019 and released on 4 August 2020 for Microsoft Windows and PlayStation 4. The game draws inspiration from game shows like Takeshi's Castle, It's a Knockout and Total Wipeout, and children's playground games like tag and British bulldog.",
         platforms:["PC", "PS4"]
     },{
@@ -165,7 +164,7 @@ app.get("/populate",e =>{
         publisher: "Valve",
         publish: new Date("2013-07-09"),
         genre: ["MOBA", "Multiplayer","Strategy","PVP"],
-        filename: "../assets/img/sample/dota2.png",//
+        filename: "../assets/img/sample/dota2.jpg",//
         description: "Competitive balance is Dota's crown jewel, and to ensure everyone is playing on an even field, the core content of the game—like the vast pool of heroes—is available to all players. Fans can collect cosmetics for heroes and fun add-ons for the world they inhabit, but everything you need to play is already included before you join your first match.",
         platforms: ["PC"]
     },{
@@ -173,7 +172,7 @@ app.get("/populate",e =>{
         publisher: "RIOT",
         publish: new Date("2009-10-27"),
         genre: ["MOBA", "Multiplayer","Strategy","PVP"],
-        filename:"../assets/img/sample/league.png",// 
+        filename:"../assets/img/sample/lol.jpg",// 
         description: "League of Legends (LoL) is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and macOS. Inspired by Defense of the Ancients.",
         platforms: ["PC"]
     },{
@@ -197,7 +196,7 @@ app.get("/populate",e =>{
         publisher: "Spike Chunsoft Co., Ltd.",
         publish: new Date("2010-10-25"),
         genre:["Adventure","Visual Novel","Murder Mystery"],
-        filename: "../assets/img/sample/danganronpa1.jpeg",
+        filename: "../assets/img/sample/danganronpa.jpg",
         description: "Hope's Peak Academy is home to Japan's best and brightest high school students—the beacons of hope for the future. But that hope suddenly dies when Makoto Naegi and his classmates find themselves imprisoned in the school, cut off from the outside world and subject to the whims of a strange, murderous little bear named Monokuma. He pits the students against each other, promising freedom to anyone who can murder a fellow classmate and get away with it. It's up to you to find out who Monokuma really is, and why you've been taken from the world you once knew. But be careful what you wish for—sometimes there’s nothing more deadly than the truth...",
         platforms: ["PSP","Android","iOS","PSVita","PC","PS4"]
     },{
@@ -205,7 +204,7 @@ app.get("/populate",e =>{
         publisher: "Spike Chunsoft Co., Ltd.",
         publish: new Date("2012-07-26"),
         genre:["Adventure","Visual Novel","Murder Mystery"],
-        filename: "../assets/img/sample/danganronpa2.jpeg",
+        filename: "../assets/img/sample/danganronpa2.jpg",
         description: "Jabberwock Island – once a popular tourist destination, this now uninhabited island remains oddly pristine. You and your classmates at the elite Hope's Peak Academy have been brought to this island by your super-cute teacher for a “lovey-dovey, heart-throbbing school trip.” Everyone seems to be having fun in the sun...until Monokuma returns to restart his murderous game! Trapped on this island of mutual killing, your only hope of escape rests in solving the island’s mysteries. But be warned—sometimes the truth can be its own despair...",
         platforms: ["PSP","Android","iOS","PSVita","PC","PS4"]
     },{
@@ -213,7 +212,7 @@ app.get("/populate",e =>{
         publisher: "Spike Chunsoft Co., Ltd.",
         publish: new Date("2017-01-12"),
         genre:["Adventure","Visual Novel","Murder Mystery"],
-        filename: "../assets/img/sample/danganronpa3.jpeg",
+        filename: "../assets/img/sample/danganronpa3.jpg",
         description: "Welcome to a new world of Danganronpa, and prepare yourself for the biggest, most exhilarating episode yet. Set in a “psycho-cool” environment, a new cast of 16 characters find themselves kidnapped and imprisoned in a school. Inside, some will kill, some will die, and some will be punished. Reimagine what you thought high-stakes, fast-paced investigation was as you investigate twisted murder cases and condemn your new friends to death.",
         platforms: ["Android","iOS","PSVita","PC","PS4"]
     },{
@@ -221,7 +220,7 @@ app.get("/populate",e =>{
         publisher: "Valve",
         publish: new Date("2012-08-21"),
         genre:["FPS","Action","Multiplayer"],
-        filename: "../assets/img/sample/CSGO.jpeg",
+        filename: "../assets/img/sample/CSGO.jpg",
         description: "Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter video game developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series and was released for Windows, OS X, Xbox 360, and PlayStation 3 in August 2012, while the Linux version was released in 2014. The game pits two teams against each other: the Terrorists and the Counter-Terrorists. Both sides are tasked with eliminating the other while also completing separate objectives. The Terrorists, depending on the game mode, must either plant the bomb or defend the hostages, while the Counter-Terrorists must either prevent the bomb from being planted, defuse the bomb, or rescue the hostages. There are nine game modes, all of which have distinct characteristics specific to that mode. The game also has matchmaking support that allows players to play on dedicated Valve servers, as well as allowing members of the community to host their own servers with custom maps and game modes. A battle-royale game-mode, Danger Zone, was introduced in 2018.",
         platforms: ["PC"]
     },{
@@ -229,11 +228,19 @@ app.get("/populate",e =>{
         publisher: "PUBG Corporation",
         publish: new Date("2017-12-21"),
         genre:["FPS","Action","Multiplayer", "Battle royale"],
-        filename: "../assets/img/sample/CSGO.jpeg",
+        filename: "../assets/img/sample/pubg.jpg",
         description: "PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. The game is based on previous mods that were created by Brendan PlayerUnknown Greene for other games, inspired by the 2000 Japanese film Battle Royale, and expanded into a standalone game under Greene's creative direction. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round.",
         platforms: ["PC"]
     }]).then(function(){
         console.log("Is it in yet?(2)")
+    },{
+        name:"Fallout 4",
+        publisher:"Bethesda Softworks",
+        publish:new Date("10/11/2015"),
+        genre:["Action", "Role-Playing", "Post-apocalyptic"],
+        filename:"../assets/img/sample/fallout4.jpg",
+        description:"Fallout 4 is an action role-playing game developed by Bethesda Game Studios and published by Bethesda Softworks. It is the fourth main game in the Fallout series and was released worldwide on November 10, 2015, for Microsoft Windows, PlayStation 4 and Xbox One. The game is set within an open world post-apocalyptic environment that encompasses the city of Boston and the surrounding Massachusetts region known as The Commonwealth. It makes use of a number of local landmarks, including Bunker Hill, Fort Independence (Massachusetts), and Old North Bridge near Concord, as the bridge out of Sanctuary Hills. The main story takes place in the year 2287, ten years after the events of Fallout 3 and 210 years after The Great War, which caused catastrophic nuclear devastation across the United States. The player assumes control of a character referred to as the Sole Survivor, who emerges from a long-term cryogenic stasis in Vault 111, an underground nuclear fallout shelter. After witnessing the murder of their spouse and kidnapping of their son, the Sole Survivor ventures out into the Commonwealth to search for their missing child. The player explores the game's dilapidated world, completes various quests, helps out factions, and acquires experience points to level up and increase the abilities of their character. New features to the series include the ability to develop and manage settlements and an extensive crafting system where materials scavenged from the environment can be used to craft drugs and explosives, upgrade weapons and armor, and construct, furnish and improve settlements. Fallout 4 also marks the first game in the series to feature full voice acting for the protagonist.",
+        platforms:["PC", "PS4", "Xbox One"]
     })
 })
 
@@ -288,8 +295,7 @@ app.get("/", async (req, res)=>{
             ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count});
         }
         
-        ave.sort((a, b) => b.aveRating - a.aveRating);
-        ave.limit(0, 4)
+        ave.sort((a, b) => b.aveRating - a.aveRating)
     } catch (e) {
         console.log(e);
     }
@@ -387,7 +393,7 @@ app.post("/login", async (req, res) => {
             req.session.user = result
             res.render("index", {
                 isLogged: true,
-                user: JSON.parse(JSON.stringify(username))
+                user: JSON.parse(JSON.stringify(result))
             })
         } else {
             res.render("login", {
@@ -395,6 +401,11 @@ app.post("/login", async (req, res) => {
             })
         }
     }
+})
+
+app.get("/signout", (req, res)=>{
+    req.session.destroy()
+    res.redirect("/")
 })
 
 app.get("/myList", async (req, res)=>{
@@ -543,13 +554,37 @@ app.post("/updateStatus", async function(req, res) {
     }
 })
 
-app.get("/viewGame",async  function(req,res){
-    let game = req.body.game
-    let dbgame = await gameModel.findOne({name:game})
+app.get("/viewGame/:_id",async  function(req,res){
+    let game = req.params._id
+    let dbgame = await gameModel.findOne({_id:game})
+    var users = await userModel.find({}).populate("gameList.game");
+    var dbgames = await gameModel.find({});
+    var ratings = [], ave = [];
+    try{
+        for (let i = 0; i < dbgames.length; i++) {
+            ratings.push({game: dbgames[i].name, rating: 0, count: 0});
+            for (let j = 0; j < users.length; j++) {
+                let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name && e.game.rating !== null);
+                if (index !== -1) {
+                    ratings[i].rating += users[j].gameList[index].rating;
+                    ratings[i].count++;
+                }
+            }
+            ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
+        }
+        
+        ave.sort((a, b) => b.aveRating - a.aveRating);
+        console.log(dbgame.publish)
+        console.log(ave);
+    } catch (e) {
+        console.log(e);
+    }
 
     res.render("gamePage",{
         user:req.session.user,
-        game:dbgame
+        game:JSON.parse(JSON.stringify(dbgame)),
+        aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
+        count:ave.filter(e => e.game === dbgame.name)[0].count
     })
 })
 
