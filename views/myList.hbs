@@ -9,15 +9,8 @@
 
 <body>
     {{#if user}}
+        {{> navbar-user}}
         {{> prof-nav}}
-    <div class="container">
-        <div class="d-flex align-items-end banner-content"><img class="d-inline-block prof-page-pic" src="../assets/img/icons/default.png">
-            <h1 class="d-inline-block banner-heading">yaptot</h1>
-        </div>
-    </div>
-    <div class="prof-nav">
-        <div class="text-center container prof-nav-content"><a class="prof-link" href="#">Profile</a><a class="prof-link" href="#">Game List</a></div>
-    </div>
     <div class="container">
         <h1 class="list-heading">Playing</h1>
         <div class="item-table playing-table">
@@ -28,10 +21,10 @@
             </div>
             {{#each playing}}
             <div class="row list-head-row">
-                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
-                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
-                <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                    <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                    <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
+                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
                 {{/each}}
@@ -49,7 +42,7 @@
             {{#each completed}}
             <div class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                 {{#each this.game.platforms}}
@@ -69,7 +62,7 @@
             {{#each planning}}
             <div class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                 {{#each this.game.platforms}}
@@ -89,7 +82,7 @@
             {{#each dropped}}
             <div class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="#">{{this.game.name}}</a></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="item-title" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                 {{#each this.game.platforms}}
@@ -100,6 +93,7 @@
             {{/each}}
         </div>
     </div>
+    {{/if}}
 </body>
 
 </html>

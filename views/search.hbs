@@ -19,11 +19,13 @@
                 <h3 class="text-left head-home">{{#if error_search}}No results found for"{{search}}"{{else}}Search results for "{{search}}"{{/if}}</h3>
                 <div class="d-flex justify-content-start flex-wrap justify-content-xl-start search-cards">
                     {{#each searchname}}
-                    <div class="card"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
-                        <div class="card-body">
-                            <h5 class="card-heading">{{this.name}}</h5>
+                    <a href="/viewGame/{{{this._id}}}">
+                        <div class="card"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
+                            <div class="card-body">
+                                <h5 class="card-heading">{{this.name}}</h5>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     {{/each}}
                 </div>
             </div>

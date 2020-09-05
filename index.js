@@ -418,15 +418,18 @@ app.get("/browse",async (req, res)=>{
         games:games
     })
 })
+
 //needs improvement
 app.get("/search",function(req,res){
-    //let search = new RegExp (req.query.search,'gi')
-    let search = req.query.search
+    let search = new RegExp (req.query.q,'gi')
+    let name = req.query.q
+    console.log(search)
+    console.log(name)
     gameModel.aggregate([{$match: {name: search}}], function (err, data) {
         if(err) console.log(err)
-        res.render("search.hbs", {
+        res.render("search", {
             error_search: data.length == 0 ? true : false,
-            search:search,
+            search:name,
             searchname: JSON.parse(JSON.stringify(data))
         })
     })
@@ -579,6 +582,19 @@ app.get("/viewGame/:_id",async  function(req,res){
         aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
         count:ave.filter(e => e.game === dbgame.name)[0].count,
         notListed:notListed
+    })
+})
+
+app.post("/addReview/:_id", async function(req, res){
+    let rating = req.body.rating
+    let review = req.body.review
+    let id= req.params._id
+
+    let user = await userModel.findOne({username:req.session.user.username})
+    let game = user.gameList.forEach( function (err, data){
+        res.render("review.hbs",{
+            
+        })
     })
 })
 

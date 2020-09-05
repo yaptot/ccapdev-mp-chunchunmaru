@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <div class="d-inline-block flex-row" id="navbar"><img class="d-inline-block" id="logo" src="../../assets/img/icons/logov1.png">
+    <div class="d-inline-block flex-row" id="navbar"><a href="/"><img class="d-inline-block" id="logo" src="../../assets/img/icons/logov1.png"></a>
         <div class="form-group d-inline-block input-group-append" style="height: 38px;">
-            <form method="GET" action="search"><div class="input-group-append"><input class="d-inline-block input-class" type="text" id="search-nav" placeholder="Search..."><button class="btn btn-primary d-inline-block input-group-text search-button" type="submit"><i class="fa fa-search"></i></button></div></div></form>
+            <form method="GET" action="/search"><div class="input-group-append"><input class="d-inline-block input-class" type="text" id="search-nav" placeholder="Search..."><button class="btn btn-primary d-inline-block input-group-text search-button" type="submit"><i class="fa fa-search"></i></button></div></div></form>
         <div class="d-inline-block float-right" id="nav-options"><a class="options" href="/">Home</a><a class="options" href="/myList">My List</a><a class="options" href="/browse">Browse</a><a class="options" href="/signout" style="margin-right: 25px;">Sign out</a><a class="options" href="#">Hello, {{user.username}}<img class="nav-pic" src="../../assets/img/icons/default.png"></a></div>
     </div>
 </body>
