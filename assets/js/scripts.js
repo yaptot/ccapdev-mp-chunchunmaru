@@ -96,4 +96,8 @@ $(document).ready(function() {
     $("button#add-list-toggle").click(function() {
         $("div#select-container").toggle();
     })
+
+    $("button#add-review-toggle").click(function() {
+        $("form#review-form").toggle();
+    })
 })

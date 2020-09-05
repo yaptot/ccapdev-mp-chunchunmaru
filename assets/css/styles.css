@@ -399,6 +399,35 @@ button-holder img {
   font-size: 14px;
 }
 
+#add-review-toggle {
+  background-color: #13c4a3;
+  border: none;
+}
+
+#add-review-toggle:hover {
+  background-color: #1a7261;
+}
+
+#review-form {
+  display:none;
+  margin-top: 10px;
+}
+
+#add-review {
+  background-color: #13c4a3;
+  border: none;
+}
+
+#add-review:hover {
+  background-color: #1a7261;
+}
+
+.review-area {
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+}
+
 .add-to-list {
   color: #f5f6f7;
   border-radius: 4px;
