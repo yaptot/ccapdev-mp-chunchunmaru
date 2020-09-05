@@ -15,12 +15,17 @@
     {{/if}}
     {{#if game}}
     <div class="container">
-        < class="row">
+        <div class="row">
             <div class="col-xl-3 game-col">
                 <div class="side-content">
-                    <div id="image-holder"><img src="../assets/img/sample/Fate_stay_night_2006_Poster.jpg" width="100%" height="100%"></div><span class="d-block side-content-headings">PLATFORMS</span><span class="d-block side-content-span">{{this.platforms}}</span><span class="d-block side-content-headings">DATE RELEASED</span>
+                    <div id="image-holder"><img src="{{{game.filename}}}" width="100%" height="100%"></div>
+                    <span class="d-block side-content-headings">PLATFORMS</span>
+                    {{#each game.platforms}}
+                    <span class="d-block side-content-span">{{this}}</span>
+                    {{/each}}
+                    <span class="d-block side-content-headings">DATE RELEASED</span>
                     <span
-                        class="d-block side-content-span">{{this.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">69,000</span>
+                        class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">{{count}}</span>
                         <div id="button-holder">
                             <form class="add-list-form">
                                 <div class="dropdown"><button class="btn btn-primary dropdown-toggle add-to-list" data-toggle="dropdown" aria-expanded="false" type="button">+ Add to List</button>
@@ -33,18 +38,18 @@
             </div>
             <div class="col">
                 <div class="game-page">
-                    <h1 class="game-head">{{this.name}}</h1>
-                    <h4 class="game-publisher">{{this.publisher}}</h4>
+                    <h1 class="game-head">{{game.name}}</h1>
+                    <h4 class="game-publisher">{{game.publisher}}</h4>
                     <h4 class="game-score">{{aveRating}} / 10</h4>
                 </div>
                 <div class="genre-list"></div>
-                {{#each this.genre}}
-                <span class="genre-span">{{this}}</span>
-                {{/each}}
-                </div>
-                <div class="game-desc">
-                    <h4 class="gamepage-label"><strong>Description</strong></h4>
-                    <p class="desc-p">{{this.description}}<br></p>
+                    {{#each game.genre}}
+                    <span class="genre-span">{{this}}</span>
+                    {{/each}}
+                    <div class="game-desc">
+                        <h4 class="gamepage-label"><strong>Description</strong></h4>
+                        <p class="desc-p">{{game.description}}<br></p>
+                    </div>
                 </div>
             </div>
         </div>
