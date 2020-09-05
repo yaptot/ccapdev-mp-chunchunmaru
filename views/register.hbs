@@ -11,16 +11,14 @@
     <div class="register-photo">
         <div class="form-container">
             <div class="image-holder"></div>
-            <form method="post">
+            <form id="regForm" method="post">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                {{#if error}}
-                    <div class="warning-div"><i class="fa fa-warning"></i><span style="margin-left: 9px;">{{error}}</span></div>
-                {{/if}}
+                    <div class="warning-div"><i class="fa fa-warning"></i><span id="err-register" style="margin-left: 9px;"></span></div>
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
                 <div class="form-group"><input class="form-control" type="password" name="cPass" placeholder="Confirm Password"></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a class="already" href="#">Already have an account? Login here.</a></form>
+                <div class="form-group"><button id="sign-up" class="btn btn-primary btn-block" type="button">Sign Up</button></div><a class="already" href="#">Already have an account? Login here.</a></form>
         </div>
     </div>
 </body>
