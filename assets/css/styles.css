@@ -106,7 +106,7 @@ body {
 }
 
 .submit-list:hover {
-  background-color: #3e90d3;
+  background-color: #4380b9;
 }
 
 #select-container {
@@ -114,18 +114,35 @@ body {
   margin-top: 10px;
 }
 
+.options {
+  transition: 0.3s;
+}
+
+a {
+  color: #f5f6f7;
+  transition: 0.1s;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #39a0ed;
+  transition: 0.1s;
+}
+
 .card-body {
-  width: auto;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-style: none;
   border-bottom-style: none;
   padding: 0px;
   padding-top: 10px;
+  text-overflow: ellipsis;
+  width: 180px; 
+  white-space: nowrap;
 }
 
 button-holder img {
-  postion: relative;
+  position: relative;
   left: 0;
 }
 
@@ -236,6 +253,12 @@ button-holder img {
   }
 }
 
+.browse-plat {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
 .register-photo form h2 {
   font-size: 24px;
   line-height: 1.5;
@@ -322,7 +345,7 @@ button-holder img {
 }
 
 .game-head {
-  color: #3e90d3;
+  color: #39a0ed;
   font-weight: 600;
   border-color: #39a0ed;
   margin-bottom: 10px;
@@ -351,7 +374,7 @@ button-holder img {
 }
 
 #sign-up:hover {
-  background: #3e90d3;
+  background: #4380b9;
 }
 
 .side-content {
@@ -436,7 +459,7 @@ button-holder img {
 }
 
 .add-to-list:hover {
-  background: #3e90d3;
+  background: #4380b9;
 }
 
 .game-score {
@@ -501,6 +524,7 @@ button-holder img {
   font-size: 15px;
   font-weight: 500;
   font-family: Overpass, sans-serif;
+  overflow: hidden;
 }
 
 .search-cards {
@@ -559,13 +583,21 @@ button-holder img {
   padding: 10px;
 }
 
+.platforms-col {
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+}
+
 .browse-genre-span {
   color: #20201e;
   background-color: #13c4a3;
   padding: 5px;
   border-radius: 20px;
   font-size: 11px;
-  margin-right: 5px;
+  margin-right: 2px;
+  margin-left: 2px;
 }
 
 .options:hover {
@@ -632,6 +664,14 @@ button-holder img {
   font-size: 15px;
 }
 
+.card:hover {
+  transition: 0.3s;
+
+}
+.card {
+  transition: 0.3s;
+}
+
 .col.title-col {
   padding-left: 61px;
 }
@@ -648,6 +688,7 @@ button-holder img {
 .item-table {
   background-color: #2f2f2f;
   border-radius: 4px;
+  border-width: 3px;;
 }
 
 .list-img {
@@ -694,7 +735,7 @@ button-holder img {
 }
 
 .search-button:hover {
-  background: #3e90d3;
+  background: #4380b9;
 }
 
 .warning-div {

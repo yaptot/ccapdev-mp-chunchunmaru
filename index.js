@@ -354,7 +354,7 @@ app.post("/register", async (req, res) => {
             if (error) {
                 return console.error(error)
             } else {
-                res.status(200).send({msg: "yehey"})
+                res.status(200).send({msg: "Successfully Registered!"})
             }
         })
     }
@@ -369,7 +369,7 @@ app.post("/login", async (req, res) => {
     let {username} = req.body
     let {password} = req.body
     if (username == "admin" && password == "caiperyap") {
-        res.send("Suck a dick, admin")
+        res.send("admin")
     } else {
         let result = await userModel.findOne({
             username: username,
@@ -599,5 +599,5 @@ app.post("/addReview/:_id", async function(req, res){
 })
 
 app.listen(3000, function(){
-    console.log("listening to 3000")
+    console.log("I love you 3000")
 })
