@@ -77,7 +77,7 @@ app.get("/populate",e =>{
         publish:new Date("2020-05-20"),
         genre:["Action", "FPS"],
         filename:"../assets/img/sample/Valorant.jpg",
-        description:"Valorant is a team-based tactical shooter and first-person shooter set in the near-future. Players play as one of a set of agents, characters designed based on several countries and cultures around the world.",
+        description:"Valorant is a team-based tactical shooter and first-person shooter set in the near-future. Players play as one of a set of agents, characters designed based on several countries and cultures around the world. Valorant is a team-based tactical shooter and first-person shooter set in the near-future. Players play as one of a set of agents, characters designed based on several countries and cultures around the world. In the main game mode, players are assigned to either the attacking or defending team with each team having five players on it. Agents have unique abilities each requiring charges, as well as a unique ultimate ability which requires charging through kills, deaths, or spike actions. Each player starts each round with a classic pistol and with one or more signature ability charge. Other weapons and ability charges can be purchased using an in game economic system which awards money based on the outcome of the previous round, any kills the player is responsible for, and any actions taken with the spike. The game has an assortment of weapons including sidearms, submachine guns, shotguns, machine guns, assault rifles and sniper rifles. Automatic and semi-automatic weapons such as the Spectre, Odin, and Vandal have recoil patterns which have to be controlled by the player in order to be able to shoot accurately. ",
         platforms:["PC"]
     },{
         name:"Warframe",
@@ -85,7 +85,7 @@ app.get("/populate",e =>{
         publish:new Date("2005-04-25"),
         genre:["Action", "Adventure", "Sci-fi"],
         filename:"../assets/img/sample/Warframe.png",
-        description:"Warframe is an online action game that includes elements of shooters, RPG, and stealth games. The player creates their Tenno character, which includes a basic armor unit called a Warframe which provides the player with special abilities, basic weapons such as a melee weapon, primary, sidearm(s), and a ship.",
+        description:"Warframe is an online action game that includes elements of shooters, RPG, and stealth games. The player creates their Tenno character, which includes a basic armor unit called a Warframe which provides the player with special abilities, basic weapons such as a melee weapon, primary, sidearm(s), and a ship. In Warframe, players control members of the Tenno, a race of ancient warriors who have awoken from centuries of suspended animation far into Earth's future to find themselves at war in the planetary system with different factions. The Tenno use their powered Warframes along with a variety of weapons and abilities to complete missions. While many of the game's missions use procedurally-generated levels, newer updates have included large open world areas similar to other massively multiplayer online games as well as some story-specific missions with fixed level design. The game includes elements of shooting and melee games, parkour, and role-playing to allow players to advance their Tenno with improved gear. The game includes both player versus environment and player versus player elements. It is supported by microtransactions, which lets players purchase in-game items using real money, but also offers the option to earn them at no cost through grinding. The concepts for Warframe originated in 2000, when Digital Extremes began work on a new game titled Dark Sector. At the time, the company had been successful in supporting other developers and publishers, and wanted to develop their own game in-house. The game suffered several delays and was eventually released in 2008, having used some of the initial framework but far different from the original plan. By 2012, in the wake of the success of free-to-play games, the developers took their earlier Dark Sector ideas and art assets and incorporated them into a new project, their self-published Warframe. Initially, the growth of Warframe was slow, hindered by moderate critical reviews and low player counts. Since its release, the game has experienced positive growth. The game is one of Digital Extremes' most successful titles, seeing nearly 50 million players in 2019.",
         platforms:["PC"]
     },{
         name:"Remnant:From the Ashes",
@@ -101,7 +101,7 @@ app.get("/populate",e =>{
         publish:new Date("2010-10-26"),
         genre:["Action", "Adventure", "Sci-fi"],
         filename:"../assets/img/sample/Bakugan.jpg",
-        description:"The game follows a separate story arc from the anime, in which the Resistance must protect Earth from a furious assault by the Vexos who are slowly taking over in order to destroy all of the Resistance's havens and Drago who contains the Perfect Core that the Vexos are searching for.",
+        description:"The game follows a separate story arc from the anime, in which the Resistance must protect Earth from a furious assault by the Vexos who are slowly taking over in order to destroy all of the Resistance's havens and Drago who contains the Perfect Core that the Vexos are searching for. The game follows a separate story arc from the anime, in which the Resistance must protect Earth from a furious assault by the Vexos who are slowly taking over in order to destroy all of the Resistance's havens and Drago who contains the Perfect Core that the Vexos are searching for. Bakugan: Defenders of the Core brings gamers into a fast binding action adventure to save the Earth from Zenoheld, Spectra, and their Vexos minions. Players create a new hero and discover new aspects of Bakugan by having full control over the creatures when taking on the opponents. For fans who get the DS version, they will take advantage of the dual screens. The game has split-screen multiplayer, head to head battles, and free for all. There is also a Collector's Edition that comes with a figure of a Bakugan. There is a large variety of figures, including a Pyrus Neo Dragonoid, Subterra Centipoid, Aquos Limulus, Subterra Cycloid, Subterra Hammer Gorem, Haos Blade Tigrerra, Darkus Laserman, Ventus Ingram, Ventus El Condor, Aquos Preyas Angelo, Aquos Preyas Diablo, and many more.",
         platforms:["PSP","Wii"]
     },{
         name:"Fate/stay night",
@@ -116,7 +116,7 @@ app.get("/populate",e =>{
         publisher:"SCS Software",
         publish:new Date("2012-10-19"),
         genre:["Vehicle Simulation"],
-        filename:"../assets/img/sample/ETS2.jpg",//
+        filename:"../assets/img/sample/ETS2.jpg",
         description:"Euro Truck Simulator 2 is a truck simulator game developed and published by SCS Software for Microsoft Windows, Linux, and macOS and was initially released as open development on 19 October 2012. The game is a direct sequel to the 2008 game Euro Truck Simulator and it is the second video game in the Truck Simulator series. The basic premise of the game is that the player can drive one of a choice of articulated trucks across a condensed depiction of Europe, picking up cargo from various locations and delivering it. As the game progresses, it is possible for the player to buy more vehicles and depots, as well as hire other drivers to work for them.",
         platforms:["PC"]
     },{
@@ -124,8 +124,8 @@ app.get("/populate",e =>{
         publisher:"Devolver Digital",
         publish:new Date("2020-08-04"),
         genre:["Battle Royale", "Platformer" ],
-        filename:"../assets/img/sample/fallGuys.jpg",//
-        description:"Fall Guys: Ultimate Knockout is a 2020 platformer battle royale game developed by Mediatonic and published by Devolver Digital. It was announced at E3 in June 2019 and released on 4 August 2020 for Microsoft Windows and PlayStation 4. The game draws inspiration from game shows like Takeshi's Castle, It's a Knockout and Total Wipeout, and children's playground games like tag and British bulldog.",
+        filename:"../assets/img/sample/fallGuys.jpg",
+        description:"Fall Guys: Ultimate Knockout is a 2020 platformer battle royale game developed by Mediatonic and published by Devolver Digital. It was announced at E3 in June 2019 and released on 4 August 2020 for Microsoft Windows and PlayStation 4. The game draws inspiration from game shows like Takeshi's Castle, It's a Knockout and Total Wipeout, and children's playground games like tag and British bulldog. Up to 60 players compete in matches with battle royale-style gameplay.Players, represented as jellybean-like figures, move around a three-dimensional playing field, with additional moves such as jumping, grabbing, or diving to assist gameplay. The aim is to qualify for subsequent rounds by successfully completing each of the randomly selected mini-games. Certain mini-games involve running towards a finish line at the end of the map, while others add elements of teamwork. On every mini-game, obstacles appear around the map for added complexity. Players who are too slow or who fail certain requirements for a mini-game are eliminated. On the final round, the remaining few players compete in a final match with a randomised mini-game designed for a smaller player size. The winner of the match is the last player standing. Using an in-game currency, Kudos, players can purchase cosmetics and emotes for their character to show off in game. Players obtain Kudos by completing matches and get Crowns (the premium currency) by winning. Some of the costumes are of characters from different games, such as Gordon Freeman from the Half-Life series or Jacket from Hotline Miami. The game supports microtransactions for the purchase of additional in-game currency.",
         platforms:["PC", "PS4"]
     },{
         name:"Dark Souls",
@@ -156,7 +156,7 @@ app.get("/populate",e =>{
         publisher: "Activision",
         publish: new Date("2019-03-22"),
         genre: ["Action", "Adventure"],
-        filename: "../assets/img/sample/Sekiro.jpg",//
+        filename: "../assets/img/sample/Sekiro.jpg",
         description: "Sekiro: Shadows Die Twice is an action-adventure video game developed by FromSoftware and published by Activision. The game follows a shinobi known as Wolf as he attempts to take revenge on a samurai clan who attacked him and kidnapped his lord. It was released for Microsoft Windows, PlayStation 4, and Xbox One in March 2019, and will be released for Stadia in October 2020. Gameplay is focused on stealth, exploration, and combat, with a particular emphasis on boss battles. The game takes place in a fictionalized Japan set during the Sengoku period, and makes strong references to Buddhist mythology and philosophy. While creating the game, lead director Hidetaka Miyazaki wanted to create a new intellectual property (IP) that marked a departure from the Souls series of games also made by FromSoftware, and looked to series such as The Mysterious Murasame Castle and Tenchu for inspiration.",
         platforms: ["PS4","PC","Xbox One"]
     },{
@@ -164,16 +164,16 @@ app.get("/populate",e =>{
         publisher: "Valve",
         publish: new Date("2013-07-09"),
         genre: ["MOBA", "Multiplayer","Strategy","PVP"],
-        filename: "../assets/img/sample/dota2.jpg",//
-        description: "Competitive balance is Dota's crown jewel, and to ensure everyone is playing on an even field, the core content of the game—like the vast pool of heroes—is available to all players. Fans can collect cosmetics for heroes and fun add-ons for the world they inhabit, but everything you need to play is already included before you join your first match.",
+        filename: "../assets/img/sample/dota2.jpg",
+        description: "Competitive balance is Dota's crown jewel, and to ensure everyone is playing on an even field, the core content of the game—like the vast pool of heroes—is available to all players. Fans can collect cosmetics for heroes and fun add-ons for the world they inhabit, but everything you need to play is already included before you join your first match. Development of Dota 2 began in 2009 when IceFrog, lead designer of Defense of the Ancients, was hired by Valve to create a modernized remake for them in the Source game engine. It was officially released for Microsoft Windows, OS X, and Linux-based personal computers via the digital distribution platform Steam in July 2013, following a Windows-only open beta phase that began two years prior. The game is fully free-to-play with no heroes or any other gameplay element needing to be bought or otherwise unlocked. To maintain it, Valve supports the game as a service, selling loot boxes and a battle pass subscription system called Dota Plus that offer non-gameplay altering virtual goods in return, such as hero cosmetics and audio replacement packs. The game has also been updated with various other features since release, such as a port to the Source 2 engine and support for virtual reality.",
         platforms: ["PC"]
     },{
         name: "League of Legends",
         publisher: "RIOT",
         publish: new Date("2009-10-27"),
         genre: ["MOBA", "Multiplayer","Strategy","PVP"],
-        filename:"../assets/img/sample/lol.jpg",// 
-        description: "League of Legends (LoL) is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and macOS. Inspired by Defense of the Ancients.",
+        filename:"../assets/img/sample/lol.jpg",
+        description: "League of Legends (LoL) is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and macOS. Inspired by Defense of the Ancients. In League of Legends, players assume the role of a champion with unique abilities and battle against a team of other player- or computer-controlled champions. The goal is usually to destroy the opposing team's Nexus, a structure that lies at the heart of a base protected by defensive structures, although other distinct game modes exist as well with varying objectives, rules, and maps. Champions span a variety of roles and blend a variety of fantasy tropes, tied to a fictional universe developed by Riot Games through short stories, comics, cinematics, and books. League of Legends was well received upon its release, earning praise for its diverse artistic and musical departments, particularly for its character design and production value. By July 2012, it was the most played PC game in North America and Europe in terms of the number of hours played. League has large footprint in streaming media communities on platforms such as YouTube and Twitch; it routinely ranks first in the most-watched hours. In September 2016, Riot Games estimated that there are over 100 million active players each month, and in September 2019, the company claimed that the game boasts nearly 8 million peak concurrent users each day.",
         platforms: ["PC"]
     },{
         name: "Demon's Souls",
@@ -368,19 +368,20 @@ app.post("/login", async (req, res) => {
     
     let {username} = req.body
     let {password} = req.body
+<<<<<<< HEAD
     if (username == "admin" && password == "caiperyap") {
         res.send("admin")
+=======
+    let result = await userModel.findOne({
+        username: username,
+        password: password
+    }).populate("gameList.game")
+    if (result) {
+        req.session.user = result
+        res.status(200).send({msg: "Log-in successful!"})
+>>>>>>> 72fa92d0fa44b2053071fcbf722e5726340bdeeb
     } else {
-        let result = await userModel.findOne({
-            username: username,
-            password: password
-        }).populate("gameList.game")
-        if (result) {
-            req.session.user = result
-            res.status(200).send({msg: "Log-in successful!"})
-        } else {
-            res.status(403).send({msg: "Incorrect username/password!"})
-        }
+        res.status(403).send({msg: "Incorrect username/password!"})
     }
 })
 
