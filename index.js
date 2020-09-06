@@ -544,7 +544,7 @@ app.get("/viewGame/:_id",async  function(req,res){
     let dbgame = await gameModel.findOne({_id:game})
     var users = await userModel.find({}).populate("gameList.game");
     var dbgames = await gameModel.find({});
-    var ratings = [], ave = [];
+    var ratings = [], ave = [], reviews = [];
     let notListed = false
     if(req.session.user){
     let user = await userModel
@@ -572,8 +572,20 @@ app.get("/viewGame/:_id",async  function(req,res){
     } catch (e) {
         console.log(e);
     }
+    console.log(dbgame.name)
+    for(i=0;i<users.length;i++){
+        console.log(users[i]+":")
+        users[i].gameList.forEach(e => {
+            console.log(e.game.name)
+            if(e.game.name === dbgame.name){
+                reviews.push({user:users[i], rating:e.rating, review:e.review})
+            }
+        })
+    }
+    console.log("reviews"+reviews.user)
     res.render("gamePage",{
         user:req.session.user,
+        reviews:reviews,
         game:JSON.parse(JSON.stringify(dbgame)),
         aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
         count:ave.filter(e => e.game === dbgame.name)[0].count,
@@ -583,15 +595,28 @@ app.get("/viewGame/:_id",async  function(req,res){
 
 app.post("/addReview/:_id", async function(req, res){
     let rating = req.body.rating
+    console.log("rating "+rating)
     let review = req.body.review
-    let id= req.params._id
+    console.log("review "+review)
+    let id = req.params._id
+    console.log("id "+id)
+    let game = await gameModel.findOne({_id:id})
+    console.log("game "+game)
 
-    let user = await userModel.findOne({username:req.session.user.username})
-    let game = user.gameList.forEach( function (err, data){
-        res.render("review.hbs",{
-            
-        })
+    let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game")
+    
+    user.gameList.forEach(async e => {
+        console.log("e.game.name "+e.game.name)
+        console.log("game.name "+game.name)
+        if (e.game.name === game.name){
+            console.log(e.rating+ "===" +rating)
+            e.rating = rating
+            if(review)
+            e.review = review
+        }
+        await user.save()
     })
+    res.redirect("/viewGame/"+id)
 })
 
 app.listen(3000, function(){
