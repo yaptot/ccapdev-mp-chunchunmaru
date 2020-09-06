@@ -354,7 +354,7 @@ app.post("/register", async (req, res) => {
             if (error) {
                 return console.error(error)
             } else {
-                res.status(200).send({msg: "yehey"})
+                res.status(200).send({msg: "Successfully Registered!"})
             }
         })
     }
@@ -368,6 +368,10 @@ app.post("/login", async (req, res) => {
     
     let {username} = req.body
     let {password} = req.body
+<<<<<<< HEAD
+    if (username == "admin" && password == "caiperyap") {
+        res.send("admin")
+=======
     let result = await userModel.findOne({
         username: username,
         password: password
@@ -375,6 +379,7 @@ app.post("/login", async (req, res) => {
     if (result) {
         req.session.user = result
         res.status(200).send({msg: "Log-in successful!"})
+>>>>>>> 72fa92d0fa44b2053071fcbf722e5726340bdeeb
     } else {
         res.status(403).send({msg: "Incorrect username/password!"})
     }
@@ -620,5 +625,5 @@ app.post("/addReview/:_id", async function(req, res){
 })
 
 app.listen(3000, function(){
-    console.log("listening to 3000")
+    console.log("I love you 3000")
 })

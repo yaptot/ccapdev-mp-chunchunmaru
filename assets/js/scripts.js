@@ -84,7 +84,8 @@ $(document).ready(function() {
                     window.location.href ='/';     
                 },
                 error: function(xhr, s) {
-                    alert(xhr.responseJSON.msg);
+                    $(".warning-div").css("display", "inline-block");
+                    $("span#err-login").text(xhr.responseJSON.msg);
                 }
             })
          }
@@ -99,5 +100,23 @@ $(document).ready(function() {
 
     $("button#add-review-toggle").click(function() {
         $("form#review-form").toggle();
+    })
+
+    var login = document.getElementById("login-form");
+
+    login.addEventListener("keyup", function(event) {
+        if(event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("login-btn").click();
+        }
+    })
+
+    var register = document.getElementById("regForm");
+
+    register.addEventListener("keyup", function(event) {
+        if(event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sign-up").click();
+        }
     })
 })
