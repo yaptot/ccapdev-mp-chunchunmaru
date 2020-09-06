@@ -69,6 +69,7 @@
             <div class="col">
                 <div class="game-review">
                     <h4 class="review-label"><strong>Reviews</strong></h4>
+                    {{#if user}}
                     {{#if notListed}}
                     {{else}}
                     <button id="add-review-toggle" class="btn btn-primary" type="button">{{#if isReviewed}}Edit Review {{else}}+ Add Review{{/if}}</button>
@@ -90,7 +91,7 @@
                         <textarea class="review-area" name="review" placeholder="Write your insights here! (optional)"> {{#if isReviewed}}{{reviewedtext}}{{/if}}</textarea>
                         <button id="add-review" class="btn btn-primary submit-review" type="submit">Submit</button> 
                     </form>
-                    {{/if}}
+                    {{/if}}{{/if}}
                     {{#each reviews}}
                     <div class="review-content"><span class="d-block reviewer">{{this.username}}</span><span class="review-score">{{this.rating}} out of 10</span>
                         <p class="review-p">{{this.review}}<br><br></p>

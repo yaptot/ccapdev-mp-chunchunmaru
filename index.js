@@ -554,6 +554,7 @@ app.get("/viewGame/:_id",async  function(req,res){
                     .findOne({username:req.session.user.username})
                     .populate("gameList.game")
         if(!(user.gameList.filter(e=> e.game.name === dbgame.name).length)){
+            console.log("in")
             notListed=true
         }
         
@@ -599,7 +600,7 @@ app.get("/viewGame/:_id",async  function(req,res){
     }else{
         aveRating = 0
     }
-
+    console.log("notListed "+notListed)
     res.render("gamePage",{
         user:req.session.user,
         reviews:reviews,
