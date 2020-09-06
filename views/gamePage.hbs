@@ -88,16 +88,11 @@
                         <textarea class="review-area" name="review" placeholder="Write your insights here! (optional)"></textarea>
                         <button id="add-review" class="btn btn-primary submit-review" type="submit">Submit</button> 
                     </form>
-                    <div class="review-content"><span class="d-block reviewer">Taguroxxx</span><span class="review-score">6 out of 10</span>
-                        <p class="review-p">"People die if they are killed." - Shirou Emiya&nbsp;<br>I'm baby chartreuse gluten-free cloud bread YOLO, meditation keytar lyft single-origin coffee kale chips dreamcatcher vegan. Lo-fi small batch four dollar toast, dreamcatcher
-                            hexagon narwhal etsy cold-pressed. Post-ironic church-key occupy mixtape scenester kinfolk. 3 wolf moon gochujang kitsch drinking vinegar, 8-bit health goth paleo jean shorts prism biodiesel hot chicken farm-to-table. Cardigan
-                            activated charcoal keytar irony. Synth yr hashtag everyday carry. Wolf ramps scenester authentic gochujang irony, flannel swag palo santo skateboard.<br><br></p>
+                    {{#each reviews}}
+                    <div class="review-content"><span class="d-block reviewer">{{this.username}}</span><span class="review-score">{{this.rating}} out of 10</span>
+                        <p class="review-p">{{this.review}}<br><br></p>
                     </div>
-                    <div class="review-content last"><span class="reviewer">Hatdawg</span><span class="review-score">6 out of 10</span>
-                        <p class="review-p">"People die if they are killed." - Shirou Emiya&nbsp;<br>I'm baby chartreuse gluten-free cloud bread YOLO, meditation keytar lyft single-origin coffee kale chips dreamcatcher vegan. Lo-fi small batch four dollar toast, dreamcatcher
-                            hexagon narwhal etsy cold-pressed. Post-ironic church-key occupy mixtape scenester kinfolk. 3 wolf moon gochujang kitsch drinking vinegar, 8-bit health goth paleo jean shorts prism biodiesel hot chicken farm-to-table. Cardigan
-                            activated charcoal keytar irony. Synth yr hashtag everyday carry. Wolf ramps scenester authentic gochujang irony, flannel swag palo santo skateboard.<br><br></p>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

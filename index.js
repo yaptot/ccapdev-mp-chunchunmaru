@@ -368,10 +368,6 @@ app.post("/login", async (req, res) => {
     
     let {username} = req.body
     let {password} = req.body
-<<<<<<< HEAD
-    if (username == "admin" && password == "caiperyap") {
-        res.send("admin")
-=======
     let result = await userModel.findOne({
         username: username,
         password: password
@@ -379,7 +375,6 @@ app.post("/login", async (req, res) => {
     if (result) {
         req.session.user = result
         res.status(200).send({msg: "Log-in successful!"})
->>>>>>> 72fa92d0fa44b2053071fcbf722e5726340bdeeb
     } else {
         res.status(403).send({msg: "Incorrect username/password!"})
     }
@@ -556,7 +551,6 @@ app.get("/viewGame/:_id",async  function(req,res){
                     .findOne({username:req.session.user.username})
                     .populate("gameList.game")
         if(!(user.gameList.filter(e=> e.game.name === dbgame.name).length)){
-            console.log("in")
             notListed=true
         }
     }
@@ -577,17 +571,13 @@ app.get("/viewGame/:_id",async  function(req,res){
     } catch (e) {
         console.log(e);
     }
-    console.log(dbgame.name)
     for(i=0;i<users.length;i++){
-        console.log(users[i]+":")
         users[i].gameList.forEach(e => {
-            console.log(e.game.name)
             if(e.game.name === dbgame.name){
-                reviews.push({user:users[i], rating:e.rating, review:e.review})
+                reviews.push({username:users[i].username, rating:e.rating, review:e.review})
             }
         })
     }
-    console.log("reviews"+reviews.user)
     res.render("gamePage",{
         user:req.session.user,
         reviews:reviews,
