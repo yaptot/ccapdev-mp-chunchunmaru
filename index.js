@@ -368,19 +368,15 @@ app.post("/login", async (req, res) => {
     
     let {username} = req.body
     let {password} = req.body
-    if (username == "admin" && password == "caiperyap") {
-        res.send("Suck a dick, admin")
+    let result = await userModel.findOne({
+        username: username,
+        password: password
+    }).populate("gameList.game")
+    if (result) {
+        req.session.user = result
+        res.status(200).send({msg: "Log-in successful!"})
     } else {
-        let result = await userModel.findOne({
-            username: username,
-            password: password
-        }).populate("gameList.game")
-        if (result) {
-            req.session.user = result
-            res.status(200).send({msg: "Log-in successful!"})
-        } else {
-            res.status(403).send({msg: "Incorrect username/password!"})
-        }
+        res.status(403).send({msg: "Incorrect username/password!"})
     }
 })
 
