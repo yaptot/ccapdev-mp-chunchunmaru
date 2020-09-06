@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
     $("button#sign-up").click(function() {
         var form = $("form#regForm").serializeArray();
         /*

@@ -20,7 +20,7 @@
                 <div class="d-flex justify-content-start flex-wrap justify-content-xl-start search-cards">
                     {{#each searchname}}
                     <a href="/viewGame/{{{this._id}}}">
-                        <div class="card"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
+                        <div class="card" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{{this.name}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
                             <div class="card-body">
                                 <h5 class="card-heading">{{this.name}}</h5>
                             </div>
