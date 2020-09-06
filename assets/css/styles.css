@@ -62,18 +62,23 @@ body {
 
 .head-home {
   font-family: Overpass, sans-serif;
-  margin-top: 30px;
   font-size: 18px;
 }
 
 .card {
   width: 185px;
   border-radius: 0px;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
   border-width: 0px;
   height: 265px;
   margin-right: 25px;
   margin-bottom: 50px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:scale(1.03);
+  transition: 0.3s;
 }
 
 .browse-a {
@@ -110,7 +115,7 @@ body {
 }
 
 #select-container {
-  display:none;
+  display: none;
   margin-top: 10px;
 }
 
@@ -137,7 +142,7 @@ a:hover {
   padding: 0px;
   padding-top: 10px;
   text-overflow: ellipsis;
-  width: 180px; 
+  width: 180px;
   white-space: nowrap;
 }
 
@@ -193,7 +198,8 @@ button-holder img {
   font-family: Overpass, sans-serif;
 }
 
-.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
+.login-clean form .btn-primary:hover,
+.login-clean form .btn-primary:active {
   background: #179b82;
 }
 
@@ -211,7 +217,8 @@ button-holder img {
   font-family: Roboto, sans-serif;
 }
 
-.login-clean form .forgot:hover, .login-clean form .forgot:active {
+.login-clean form .forgot:hover,
+.login-clean form .forgot:active {
   opacity: 1;
   text-decoration: none;
 }
@@ -233,7 +240,7 @@ button-holder img {
   max-width: 900px;
   width: 90%;
   margin: 0 auto;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .register-photo form {
@@ -295,7 +302,8 @@ button-holder img {
   font-family: Overpass, sans-serif;
 }
 
-.register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+.register-photo form .btn-primary:hover,
+.register-photo form .btn-primary:active {
   background: #3e90ed;
 }
 
@@ -316,7 +324,8 @@ button-holder img {
   width: 220px;
 }
 
-.desc-p, .review-p {
+.desc-p,
+.review-p {
   font-size: 14px;
   margin-top: 6px;
 }
@@ -327,7 +336,7 @@ button-holder img {
   margin-top: 20px;
   border-left-style: none;
   border-radius: 4px;
-  height: 69%;
+  height: auto;
 }
 
 .game-review {
@@ -368,7 +377,7 @@ button-holder img {
   text-align: center;
   color: #f5f6f7;
   border-radius: 5px;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 5px;
   border-style: none;
 }
@@ -391,6 +400,7 @@ button-holder img {
   margin-right: 10px;
   color: #20201e;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 .browse-card-info1 .genre-span {
@@ -404,13 +414,10 @@ button-holder img {
   padding-bottom: 5px;
 }
 
-.browse-card-info1.genre-span {
-  padding: 8px;
-  border-radius: 30px;
-  background: #13c4a3;
-  margin-right: 10px;
-  color: #20201e;
-  font-size: 14px;
+.browse-card-info1 .genre-span:hover {
+  background: #1a7261;
+  color: #f5f6f7;
+  cursor: pointer;
 }
 
 .genre-list {
@@ -432,7 +439,7 @@ button-holder img {
 }
 
 #review-form {
-  display:none;
+  display: none;
   margin-top: 10px;
 }
 
@@ -496,6 +503,9 @@ button-holder img {
 .genre-span:hover {
   background: #1a7261;
   color: #f5f6f7;
+  transition: 0.3s;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .reviewer {
@@ -513,7 +523,7 @@ button-holder img {
 
 .review-content {
   margin-top: 30px;
-  border-bottom: 2px solid #1a7261 ;
+  border-bottom: 2px solid #1a7261;
 }
 
 .review-content.last {
@@ -540,7 +550,7 @@ button-holder img {
   padding-bottom: 20px;
   width: 90%;
   border-style: none;
-  border-bottom: 3px none #13c4a3 ;
+  border-bottom: 3px none #13c4a3;
   border-radius: 4px;
 }
 
@@ -555,7 +565,8 @@ button-holder img {
   padding: 20px;
 }
 
-.browse-card, .list-card {
+.browse-card,
+.list-card {
   background-color: #2f2f2f;
   border-radius: 4px;
   height: 80px;
@@ -598,6 +609,14 @@ button-holder img {
   font-size: 11px;
   margin-right: 2px;
   margin-left: 2px;
+  transition: 0.3s;
+}
+
+.browse-genre-span:hover {
+  color: #f5f6f7;
+  background-color: #1a7261;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .options:hover {
@@ -668,6 +687,7 @@ button-holder img {
   transition: 0.3s;
 
 }
+
 .card {
   transition: 0.3s;
 }
@@ -688,7 +708,8 @@ button-holder img {
 .item-table {
   background-color: #2f2f2f;
   border-radius: 4px;
-  border-width: 3px;;
+  border-width: 3px;
+  ;
 }
 
 .list-img {
@@ -698,7 +719,7 @@ button-holder img {
 }
 
 .playing-table {
-  border-left: 3px solid #13c4a3 ;
+  border-left: 3px solid #13c4a3;
 }
 
 .planning-table {
@@ -755,4 +776,38 @@ button-holder img {
 
 .dropdown-item {
   color: #f5f6f7;
+}
+
+.review-area {
+  background-color: #20201e;
+  color: #f5f6f7;
+  border-radius: 4px;
+  border: none;
+}
+
+.rating-select, .select-status {
+  background-color: #20201e;
+  color: #f5f6f7;
+  border: none;
+  border-radius: 4px;
+}
+
+.item-title {
+  margin-right: 10px;
+}
+
+.playing-game:hover {
+  color:#13c4a3
+}
+
+.completed-game:hover {
+  color: #39a0ed;
+}
+
+.planning-game:hover {
+  color: #fff854;
+}
+
+.dropped-game:hover {
+  color: #fc3d48
 }

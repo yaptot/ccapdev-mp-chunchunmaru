@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-xl-3 game-col">
                 <div class="side-content">
-                    <div id="image-holder"><img src="{{{game.filename}}}" width="100%" height="100%"></div>
-                    <span class="d-block side-content-headings">PLATFORMS</span>
+                    <div id="image-holder"><img src="{{{game.filename}}}" width="207px" height="276px"></div>
+                    <span class="d-block side-content-headings" style="margin-top:30px">PLATFORMS</span>
                     {{#each game.platforms}}
                     <span class="d-block side-content-span">{{this}}</span>
                     {{/each}}
@@ -35,7 +35,6 @@
                                 <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">+ Add to List</button>
                                 <div id="select-container">
                                     <select name="status" class="select-status">
-
                                         <option value="Playing">Playing</option>
                                         <option value="Completed">Completed</option>
                                         <option value="Planning">Planning</option>
@@ -75,7 +74,7 @@
                     <button id="add-review-toggle" class="btn btn-primary" type="button">{{#if isReviewed}}Edit Review {{else}}+ Add Review{{/if}}</button>
                     <form id="review-form" method="POST" action="/addReview/{{{game._id}}}">
                         <span class="review-score">Rating:</span> 
-                        <select name="rating" class="">
+                        <select name="rating" class="rating-select">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
