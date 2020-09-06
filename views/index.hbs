@@ -13,6 +13,7 @@
     {{else}}
         {{> navbar}}
     {{/if}}
+    
     <div class="container">
         <div id="home-content">
             <div class="row" style="text-align: center;margin-top: 50px;">
@@ -22,7 +23,7 @@
                 <h3 class="text-left head-home">TOP RATED</h3>
                 <div class="home-cards">
                     {{#each ave}}
-                    <a class="card-hover" href="/viewGame/{{{this._id}}}"><div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
+                    <a class="card-hover" href="/viewGame/{{{this._id}}}"><div class="card d-inline-block" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{{this.game}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
                         <div class="card-body">
                             <h5 class="card-heading">{{this.game}}</h5>
                         </div>
@@ -35,7 +36,7 @@
                 <h3 class="text-left head-home">MOST PLAYED</h3>
                 <div class="home-cards">
                     {{#each count}}
-                    <a href="/viewGame/{{{this._id}}}"><div class="card d-inline-block"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
+                    <a href="/viewGame/{{{this._id}}}"><div class="card d-inline-block" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{{this.game}}}"><img class="card-img-top w-100 d-block card-img" src="{{{this.filename}}}">
                         <div class="card-body">
                             <h5 class="card-heading">{{this.game}}</h5>
                         </div>
