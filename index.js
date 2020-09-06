@@ -546,6 +546,9 @@ app.get("/viewGame/:_id",async  function(req,res){
     var dbgames = await gameModel.find({});
     var ratings = [], ave = [], reviews = [];
     let notListed = false
+    let reviewedtext
+    let isReviewed = false
+    
     if(req.session.user){
     let user = await userModel
                     .findOne({username:req.session.user.username})
@@ -553,7 +556,24 @@ app.get("/viewGame/:_id",async  function(req,res){
         if(!(user.gameList.filter(e=> e.game.name === dbgame.name).length)){
             notListed=true
         }
+        
+        user.gameList.forEach(e=>{
+            if(e.game.name === dbgame.name){
+                if(e.review != null){
+                    reviewedtext = e.review
+                    isReviewed = true
+                }
+            }
+        })
     }
+    for(i=0;i<users.length;i++){
+        users[i].gameList.forEach(e => {
+            if(e.game.name === dbgame.name && e.rating !== null){
+                reviews.push({username:users[i].username, rating:e.rating, review:e.review})
+            }
+        })
+    }
+    
     try{
         for (let i = 0; i < dbgames.length; i++) {
             ratings.push({game: dbgames[i].name, rating: 0, count: 0});
@@ -571,18 +591,22 @@ app.get("/viewGame/:_id",async  function(req,res){
     } catch (e) {
         console.log(e);
     }
-    for(i=0;i<users.length;i++){
-        users[i].gameList.forEach(e => {
-            if(e.game.name === dbgame.name){
-                reviews.push({username:users[i].username, rating:e.rating, review:e.review})
-            }
-        })
+
+    let isRated = false
+    let aveRating = ave.filter(e => e.game === dbgame.name)[0].aveRating
+    if( aveRating > 0){
+        isRated = true
+    }else{
+        aveRating = 0
     }
+
     res.render("gamePage",{
         user:req.session.user,
         reviews:reviews,
+        isReviewed:isReviewed,
+        reviewedtext:reviewedtext,
         game:JSON.parse(JSON.stringify(dbgame)),
-        aveRating:ave.filter(e => e.game === dbgame.name)[0].aveRating,
+        aveRating:aveRating,
         count:ave.filter(e => e.game === dbgame.name)[0].count,
         notListed:notListed
     })
@@ -601,8 +625,6 @@ app.post("/addReview/:_id", async function(req, res){
     let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game")
     
     user.gameList.forEach(async e => {
-        console.log("e.game.name "+e.game.name)
-        console.log("game.name "+game.name)
         if (e.game.name === game.name){
             console.log(e.rating+ "===" +rating)
             e.rating = rating

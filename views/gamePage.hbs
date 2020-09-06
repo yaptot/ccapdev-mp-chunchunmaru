@@ -69,7 +69,9 @@
             <div class="col">
                 <div class="game-review">
                     <h4 class="review-label"><strong>Reviews</strong></h4>
-                    <button id="add-review-toggle" class="btn btn-primary" type="button">+ Add Review</button>
+                    {{#if notListed}}
+                    {{else}}
+                    <button id="add-review-toggle" class="btn btn-primary" type="button">{{#if isReviewed}}Edit Review {{else}}+ Add Review{{/if}}</button>
                     <form id="review-form" method="POST" action="/addReview/{{{game._id}}}">
                         <span class="review-score">Rating:</span> 
                         <select name="rating" class="">
@@ -85,9 +87,10 @@
                             <option value="10">10</option>
                         </select>
                         <span class="review-score">/10</span>
-                        <textarea class="review-area" name="review" placeholder="Write your insights here! (optional)"></textarea>
+                        <textarea class="review-area" name="review" placeholder="Write your insights here! (optional)"> {{#if isReviewed}}{{reviewedtext}}{{/if}}</textarea>
                         <button id="add-review" class="btn btn-primary submit-review" type="submit">Submit</button> 
                     </form>
+                    {{/if}}
                     {{#each reviews}}
                     <div class="review-content"><span class="d-block reviewer">{{this.username}}</span><span class="review-score">{{this.rating}} out of 10</span>
                         <p class="review-p">{{this.review}}<br><br></p>
