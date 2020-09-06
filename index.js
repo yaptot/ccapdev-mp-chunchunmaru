@@ -295,7 +295,7 @@ app.get("/", async (req, res)=>{
         }
         
         ave = games.sort((a, b) => b.aveRating - a.aveRating)
-        count = games.sort((a, b) =>b.count - a.count)
+        count = games.sort((a, b) => b.count - a.count)
         ave = ave.slice(0, 5)
         count = games.slice(0, 5)
     } catch (e) {
@@ -521,8 +521,10 @@ app.post("/deleteGame",async function(req, res){
     })
 })
 
-app.post("/updateStatus", async function(req, res) {
-    let {gameName, status} = req.body
+app.post("/updateStatus/:_id", async function(req, res) {
+    let id = req.params._id
+    let status = req.body.status
+    let game = await gameModel.findOne({_id:id})
 
     var user = await userModel
             .findOne({username: req.session.user.username})
@@ -530,12 +532,11 @@ app.post("/updateStatus", async function(req, res) {
     if (user) {
         console.log(user)
         user.gameList.forEach(e => {
-            if (e.game.name === gameName) e.status = status;
+            if (e.game.name === game.name) e.status = status;
         })
         await user.save()
-        res.render("index.hbs",{
-            user:user
-        })
+        req.session.user = user
+        res.redirect("/viewGame/"+id)
     }
 })
 
@@ -593,7 +594,6 @@ app.get("/viewGame/:_id",async  function(req,res){
         console.log(e);
     }
 
-    let isRated = false
     let aveRating = ave.filter(e => e.game === dbgame.name)[0].aveRating
     if( aveRating > 0){
         isRated = true

@@ -43,6 +43,19 @@
                                     <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
                                 </div>
                             </form>
+                            {{else}}
+                            <form class="add-list-form" method="POST" action="/updateStatus/{{{game._id}}}">
+                                <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">Change Status</button>
+                                <div id="select-container">
+                                    <select name="status" class="select-status">
+                                        <option value="Playing">Playing</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Planning">Planning</option>
+                                        <option value="Dropped">Dropped</option>
+                                    </select>
+                                    <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
+                                </div>
+                            </form>
                             {{/if}}
                             {{/if}}
                         </div>
