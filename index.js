@@ -17,6 +17,7 @@ app.use(session({
     cookie:{maxAge:1000*60*60*24}
 }))
 
+
 app.use(bodyparser.urlencoded({ extended: true}))
 app.use(bodyparser.json())
 app.use(express.static(__dirname + '/'));
