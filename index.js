@@ -429,10 +429,10 @@ app.get("/browse",async (req, res)=>{
 
 //needs improvement
 app.get("/search",function(req,res){
-    if(req.query.q == '?'){
+    if(req.query.q == '?' || req.query.q == '*'){
         res.render("search", {
             error_search:true,
-            search:'?'
+            search:req.query.q
         })
     }else{
         let search = new RegExp (req.query.q,'gi')
