@@ -43,35 +43,8 @@ const db = mongoose.connection
     ROUTES
 */
 
-app.get("/populate",e =>{
-    userModel.insertMany([{
-        userType: "member",
-        username: "lolz",
-        password: "cisco",
-        email: "lolz@gmail.com",
-        gameList:[]
-    },{
-        userType: "member",
-        username: "yaptot",
-        password: "class",
-        email: "yaptot@gmail.com",
-        gameList:[]
-    },{
-        userType: "member",
-        username: "voidgenon",
-        password: "cisco",
-        email: "voidgenon@gmail.com",
-        gameList:[]
-    },{
-        userType: "member",
-        username: "perez",
-        password: "abcd12345",
-        email: "eugeneperez123@gmail.com",
-        gameList:[]
-    }]).then(function(){
-        console.log("Is it in yet?(1)")
-    })
-    gameModel.insertMany([{
+app.get("/populate",async e =>{
+    await gameModel.insertMany([{
         name:"VALORANT",
         publisher:"Riot",
         publish:new Date("2020-05-20"),
@@ -231,8 +204,6 @@ app.get("/populate",e =>{
         filename: "../assets/img/sample/pubg.jpg",
         description: "PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. The game is based on previous mods that were created by Brendan PlayerUnknown Greene for other games, inspired by the 2000 Japanese film Battle Royale, and expanded into a standalone game under Greene's creative direction. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round.",
         platforms: ["PC"]
-    }]).then(function(){
-        console.log("Is it in yet?(2)")
     },{
         name:"Fallout 4",
         publisher:"Bethesda Softworks",
@@ -241,6 +212,48 @@ app.get("/populate",e =>{
         filename:"../assets/img/sample/fallout4.jpg",
         description:"Fallout 4 is an action role-playing game developed by Bethesda Game Studios and published by Bethesda Softworks. It is the fourth main game in the Fallout series and was released worldwide on November 10, 2015, for Microsoft Windows, PlayStation 4 and Xbox One. The game is set within an open world post-apocalyptic environment that encompasses the city of Boston and the surrounding Massachusetts region known as The Commonwealth. It makes use of a number of local landmarks, including Bunker Hill, Fort Independence (Massachusetts), and Old North Bridge near Concord, as the bridge out of Sanctuary Hills. The main story takes place in the year 2287, ten years after the events of Fallout 3 and 210 years after The Great War, which caused catastrophic nuclear devastation across the United States. The player assumes control of a character referred to as the Sole Survivor, who emerges from a long-term cryogenic stasis in Vault 111, an underground nuclear fallout shelter. After witnessing the murder of their spouse and kidnapping of their son, the Sole Survivor ventures out into the Commonwealth to search for their missing child. The player explores the game's dilapidated world, completes various quests, helps out factions, and acquires experience points to level up and increase the abilities of their character. New features to the series include the ability to develop and manage settlements and an extensive crafting system where materials scavenged from the environment can be used to craft drugs and explosives, upgrade weapons and armor, and construct, furnish and improve settlements. Fallout 4 also marks the first game in the series to feature full voice acting for the protagonist.",
         platforms:["PC", "PS4", "Xbox One"]
+    }]).then(function(){
+        console.log("Is it in yet?(1)")
+    })
+    let valorant = await gameModel.findOne({name:"VALORANT"})
+    let valorantID = valorant._id
+    let warframe = await gameModel.findOne({name:"Warframe"})
+    let warframeID = warframe._id
+    let pubg = await gameModel.findOne({name:"PlayerUnknown's Battlegrounds"})
+    let pubgID = pubg._id
+
+    userModel.insertMany([{
+        userType: "member",
+        username: "lolz",
+        password: "cisco",
+        email: "lolz@gmail.com",
+        gameList:[
+            {game:valorantID, status:"Playing", rating:8, review:"I love this game! EZ jett main"}]
+    },{
+        userType: "member",
+        username: "yaptot",
+        password: "class",
+        email: "yaptot@gmail.com",
+        gameList:[
+            {game:valorantID, status:"Playing", rating:9, review:"I love this game! Kaso binubuhat ako ni Eugene kaya ok lang!"},
+            {game:pubgID, status:"Playing", rating:9, review:"I love this game! Kaso binubuhat ako ni Eugene kaya ok lang!"}]
+    },{
+        userType: "member",
+        username: "voidgenon",
+        password: "cisco",
+        email: "voidgenon@gmail.com",
+        gameList:[
+            {game:valorantID, status:"Playing", rating:7, review:"Dali naman magbuhat dito"},
+            {game:warframeID, status:"Playing", rating:10, review:"Gameplay is a 10. Lore is a 10. Doggy is a 100"}]
+    },{
+        userType: "member",
+        username: "perez",
+        password: "abcd12345",
+        email: "eugeneperez123@gmail.com",
+        gameList:[
+            {game:valorantID, status:"Completed", rating:10, review:""}]
+    }]).then(function(){
+        console.log("Is it in yet?(2)")
     })
 })
 
