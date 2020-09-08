@@ -429,18 +429,24 @@ app.get("/browse",async (req, res)=>{
 
 //needs improvement
 app.get("/search",function(req,res){
-    let search = new RegExp (req.query.q,'gi')
-    let name = req.query.q
-    console.log(search)
-    console.log(name)
-    gameModel.aggregate([{$match: {name: search}}], function (err, data) {
-        if(err) console.log(err)
+    if(req.query.q == '?'){
         res.render("search", {
-            error_search: data.length == 0 ? true : false,
-            search:name,
-            searchname: JSON.parse(JSON.stringify(data))
+            error_search:true,
+            search:'?'
         })
-    })
+    }else{
+        let search = new RegExp (req.query.q,'gi')
+        let name = req.query.q
+        gameModel.aggregate([{$match: {name: search}}], function (err, data) {
+            if(err) console.log(err)
+            res.render("search", {
+                error_search: data.length == 0 ? true : false,
+                search:name,
+                searchname: JSON.parse(JSON.stringify(data))
+            })
+        })
+    }
+    
 })
 
 app.post("/addgame",function(req,res){
