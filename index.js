@@ -37,7 +37,6 @@ mongoose.connect('mongodb://localhost/Gamerist', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('connected'), err => console.log(err));
-const db = mongoose.connection
 
 /*
     ROUTES
