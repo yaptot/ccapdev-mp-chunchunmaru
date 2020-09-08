@@ -433,7 +433,8 @@ app.get("/search",function(req,res){
     if(req.query.q == '?' || req.query.q == '*'){
         res.render("search", {
             error_search:true,
-            search:req.query.q
+            search:req.query.q,
+            user:req.session.user
         })
     }else{
         let search = new RegExp (req.query.q,'gi')
@@ -443,7 +444,8 @@ app.get("/search",function(req,res){
             res.render("search", {
                 error_search: data.length == 0 ? true : false,
                 search:name,
-                searchname: JSON.parse(JSON.stringify(data))
+                searchname: JSON.parse(JSON.stringify(data)),
+                user:req.session.user
             })
         })
     }
