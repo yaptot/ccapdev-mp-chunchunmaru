@@ -48,11 +48,11 @@ $(document).ready(function() {
                 type: 'POST',
                 data: form, 
                 success: function(result, s) {
-                    alert(result.msg)
+                    ohSnap(result.msg, {color: 'green'})
                     window.location.href ='/';      
                 },
                 error: function(xhr, s) {
-                    alert(xhr.responseJSON.msg);
+                    ohSnap(xhr.responseJSON.msg, {color: 'red'})
                 }
             })
         }
