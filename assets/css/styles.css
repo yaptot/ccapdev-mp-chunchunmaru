@@ -24,9 +24,8 @@ body {
 }
 
 #nav-options {
-  text-align: right;
   padding-right: 50px;
-  padding-top: 2px;
+  padding-top: 7px;
 }
 
 #logo {
@@ -173,7 +172,7 @@ button-holder img {
   color: #13c4a3;
 }
 
-.login-clean form .form-control {
+.form-control {
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -186,7 +185,7 @@ button-holder img {
   font-family: Roboto, sans-serif;
 }
 
-.login-clean form .btn-primary {
+#login-form .btn-primary {
   background-color: #13c4a3;
   border: none;
   border-radius: 4px;
@@ -198,12 +197,12 @@ button-holder img {
   font-family: Overpass, sans-serif;
 }
 
-.login-clean form .btn-primary:hover,
-.login-clean form .btn-primary:active {
+#login-form .btn-primary:hover,
+#login-form .btn-primary:active {
   background: #179b82;
 }
 
-.login-clean form .btn-primary:active {
+#login-form .btn-primary:active {
   transform: translateY(1px);
 }
 
@@ -233,6 +232,10 @@ button-holder img {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   background: url(../../assets/img/reg-art.jpg) bottom / cover no-repeat;
+}
+
+#login-holder {
+  background: url(../../assets/img/pallet-town.png) bottom / cover no-repeat;
 }
 
 .register-photo .form-container {
@@ -277,6 +280,18 @@ button-holder img {
   background: #2f2f2f;
   border: none;
   border-bottom: 2px solid #39a0ed;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: #f5f6f7;
+  text-indent: 6px;
+  height: 40px;
+}
+
+#login-form .form-control {
+  background: #2f2f2f;
+  border: none;
+  border-bottom: 2px solid #13c4a3;
   border-radius: 0;
   box-shadow: none;
   outline: none;
@@ -647,6 +662,7 @@ button-holder img {
   padding-right: 100px;
   padding-left: 100px;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .prof-link {
@@ -665,7 +681,6 @@ button-holder img {
   font-size: 19px;
   font-family: Overpass, sans-serif;
   margin-top: 50px;
-  padding-left: 30px;
 }
 
 .row.list-head-row {

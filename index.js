@@ -412,6 +412,7 @@ app.get("/myList", async (req, res)=>{
     console.log(user)
     res.render("myList",{
         user:user,
+        mylist: true,
         playing:playing,
         completed:completed,
         planning:planning,
@@ -537,13 +538,6 @@ app.get("/getList",async function(req, res){ //req.session.user.username
     req.session.user = user
     console.log(user)
     res.render("myList",{
-        user:user
-    })
-})
-
-app.get("/viewProfile", function(req, res){
-    let user = req.session.user
-    res.render("../views/tests/profile.hbs", {
         user:user
     })
 })
@@ -681,6 +675,18 @@ app.post("/addReview/:_id", async function(req, res){
         await user.save()
     })
     res.redirect("/viewGame/"+id)
+})
+
+app.get("/profile", async function(req, res) {
+    let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game");
+    user = JSON.parse(JSON.stringify(user));
+    req.session.user = user;
+
+    console.log(user)
+    res.render("profile",{
+        user:user,
+        profpage: true
+    })
 })
 
 app.listen(3000, function(){
