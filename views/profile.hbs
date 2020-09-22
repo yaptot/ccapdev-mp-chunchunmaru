@@ -10,8 +10,54 @@
         {{> navbar-user}}
         {{> prof-nav}}
     {{/if}}
-    <div class="container">
-        asdashfhfkjdshdskjgkjkjds
+    <div class="container prof-content">
+        <div class="prof-content-grid">
+            <div class="section">
+                <h2 class="prof-header">Game List Overview</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status" style="background-color: #13c4a3;">Playing</div>
+                        <div class="amount" style="color: #13c4a3">25<span class="entries">Entries</span></div>
+                    </div>
+                        
+                    <div class="status-item">
+                        <div class="status" style="background-color: #39a0ed;">Completed</div>
+                        <div class="amount" style="color: #39a0ed">25<span class="entries">Entries</span></div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status" style="background-color: #fff854; color: #20201e">Planning</div>
+                        <div class="amount" style="color: #fff854">25<span class="entries">Entries</span></div>
+                    </div>
+
+                    <div class="status-item">
+                        <div class="status" style="background-color: #fc3d48;">Dropped</div>
+                        <div class="amount" style="color: #fc3d48">25<span class="entries">Entries</span></div>
+                    </div>
+                </div>
+                <div class="something">
+                    <span class="percentage" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Playing" style="width: 25%; background-color:#13c4a3; border-bottom-left-radius: 7px;"></span>
+                    <span class="percentage" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Completed" style="width: 25%; background-color:#39a0ed"></span>
+                    <span class="percentage" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Planning" style="width: 25%; background-color:#fff854"></span>
+                    <span class="percentage" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Dropped" style="width: 25%; background-color:#fc3d48; border-bottom-right-radius: 7px;"></span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="prof-header">Statistics</h2>
+                <div class="stats-grid">
+                    <div class="grid-item">
+                        <div class="stat-num">100</div>
+                        <div class="stat-label">Total Games</div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="stat-num">6.9</div>
+                        <div class="stat-label">Mean Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
