@@ -13,6 +13,7 @@
         {{> prof-nav}}
     <div class="container">
         <h1 class="list-heading">Playing</h1>
+        {{#if playing}}
         <div class="item-table playing-table">
             <div class="row list-head-row">
                 <div class="col title-col"><span class="item-heading">Title</span></div>
@@ -32,13 +33,19 @@
             </div>
             {{/each}}
         </div>
+        {{else}}
+            <h6>No items on list.</h6>
+        {{/if}}
+
         <h1 class="list-heading">Completed</h1>
+        {{#if completed}}
         <div class="item-table completed-table" style="border-left-style: solid;border-left-color: #39a0ed;">
             <div class="row list-head-row">
                 <div class="col title-col"><span class="item-heading">Title</span></div>
                 <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
+        
             {{#each completed}}
             <div class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
@@ -52,7 +59,11 @@
             </div>
             {{/each}}
         </div>
+        {{else}}
+        <h6>No items on list.</h6>
+        {{/if}}
         <h1 class="list-heading">Planning</h1>
+        {{#if planning}}
         <div class="item-table planning-table">
             <div class="row list-head-row">
                 <div class="col title-col"><span class="item-heading">Title</span></div>
@@ -72,7 +83,12 @@
             </div>
             {{/each}}
         </div>
+        {{else}}
+            <h6>No items on list.</h6>
+        {{/if}}
+        
         <h1 class="list-heading">Dropped</h1>
+        {{#if dropped}}
         <div class="item-table dropped-table">
             <div class="row list-head-row">
                 <div class="col title-col"><span class="item-heading">Title</span></div>
@@ -92,6 +108,10 @@
             </div>
             {{/each}}
         </div>
+        {{else}}
+            <h6>No items on list.</h6>
+        {{/if}}
+
     </div>
     {{/if}}
 </body>
