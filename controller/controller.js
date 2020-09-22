@@ -408,19 +408,47 @@ const functions = {
 
     getProfile  : async function(req,res){
         let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game");
-        user = JSON.parse(JSON.stringify(user));
+        user = JSON.parse(JSON.stringify(user))
         req.session.user = user;
+        var ratings = 0;
+        var tot = 0
+
+        let playing = user.gameList.filter(e => e.status === "Playing");
+        let completed = user.gameList.filter(e => e.status === "Completed")
+        let planning = user.gameList.filter(e => e.status === "Planning");
+        let dropped = user.gameList.filter(e => e.status === "Dropped");
+
+        let total = playing.length + completed.length + planning.length + dropped.length
+
+        user = JSON.parse(JSON.stringify(user))
+
+        for(let i = 0; i < user.gameList.length; i++){
+            if(user.gameList[i].rating){
+                ratings += user.gameList[i].rating;
+                tot++
+            }
+        }
+
+        
         res.render("profile",{
             user:user,
-            profpage: true
+            profpage: true,
+            total:total,
+            playing:playing.length,
+            completed:completed.length,
+            planning:planning.length,
+            dropped:dropped.length,
+            playingPercent: (playing.length / total) * 100 + "%",
+            completedPercent: (completed.length / total) * 100 + "%",
+            planningPercent: (planning.length / total) * 100 + "%",
+            droppedPercent: (dropped.length / total) * 100 + "%",
+            mean:ratings/tot
         })
     },
 
     postRegister    : async function(req, res){
         let {username, password, email} = req.body
-        let userExists = await userModel.findOne({
-            username: username
-        })
+        console.log(username);
         let doc = new userModel({
             userType: "member",
             username: username,
@@ -428,7 +456,11 @@ const functions = {
             email: email,
             gameList: []
         })
-        doc.save(res.status(200).send({msg: "Successfully Registered!"}))
+        doc.save(async function(error){
+            req.session.user = await userModel.findOne({username:username}).populate("gameList.game");
+            console.log(req.session.user)
+            res.redirect('/')
+        })
     },
 
     postLogin   : async function(req, res){
@@ -441,8 +473,6 @@ const functions = {
         if(result){
             req.session.user = result
             res.status(200).send()
-        }else{
-            res.status(401).send({msg:"Login failed!"})
         }
         
     },

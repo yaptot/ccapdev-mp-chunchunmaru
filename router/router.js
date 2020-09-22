@@ -17,8 +17,8 @@ router.get('/viewGame/:_id', controller.getViewGame)
 router.get('/profile', controller.getProfile)
 
 //Post methods
-router.post('/register', controller.postRegister)
-router.post('/login', controller.postLogin)
+router.post('/register', middleware.validateReg, controller.postRegister)
+router.post('/login', middleware.validateUser, controller.postLogin)
 router.post('/addgame', controller.postAddGame)
 router.post('/addList/:_id', controller.postAddList)
 router.post('/deleteGame', controller.postDeleteGame)
