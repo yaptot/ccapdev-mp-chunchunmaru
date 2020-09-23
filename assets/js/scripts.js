@@ -134,6 +134,12 @@ $(document).ready(function() {
 
             console.table(cGenres);
             console.table(cPlatforms);
+
+            if(!cGenres.length)
+                ohSnap("Please select at least one genre!", {color: 'red'});
+
+            if(!cPlatforms.length)
+                ohSnap("Please select at least one platform!", {color: 'red'});
         }
         else {
             ohSnap("Please fill up all fields!", {color: 'red'});
