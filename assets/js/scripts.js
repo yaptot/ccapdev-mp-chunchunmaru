@@ -123,7 +123,6 @@ $(document).ready(function() {
                 if(e.checked){
                     cGenres.push(e.value);
                 }
-                    
             })
 
             platforms.forEach(e => {
@@ -137,9 +136,25 @@ $(document).ready(function() {
 
             if(!cGenres.length)
                 ohSnap("Please select at least one genre!", {color: 'red'});
-
-            if(!cPlatforms.length)
+            else if(!cPlatforms.length)
                 ohSnap("Please select at least one platform!", {color: 'red'});
+            else {
+                $.ajax({
+                    url:'',
+                    method:'POST',
+                    data: {
+                        form: form,
+                        genres: cGenres,
+                        platforms: cPlatforms
+                    },
+                    success: function() {
+
+                    },
+                    error: function() {
+                        
+                    }
+                })
+            }
         }
         else {
             ohSnap("Please fill up all fields!", {color: 'red'});
