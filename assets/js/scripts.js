@@ -80,8 +80,8 @@ $(document).ready(function() {
                 url: "/login",
                 type: 'POST',
                 data: form, 
-                success: function(result, s) {
-                    ohSnap(result.msg, {color: 'green'}); 
+                success: function() {
+                    ohSnap("Login Successful", {color: 'green'}); 
                     window.location.href ='/';     
                 },
                 error: function(xhr, s) {
@@ -102,21 +102,64 @@ $(document).ready(function() {
         $("form#review-form").toggle();
     })
 
+    $("button#submitGame").click(function() {
+        console.log("tangina mo eugene");
+        var form = $("form#addGame").serializeArray();
+    
+        let checks = true;
+        for(let i = 0; i < 4; i++) {
+            if(validator.isEmpty(form[i].value))
+                checks = false;
+        }
+    
+        if(checks) {
+            var platforms = document.forms['addGame'].elements['platform[]'];
+            var genres = document.forms['addGame'].elements['genre[]'];
+
+            let cGenres = [];
+            let cPlatforms = [];
+
+            genres.forEach(e => {
+                if(e.checked){
+                    cGenres.push(e.value);
+                }
+                    
+            })
+
+            platforms.forEach(e => {
+                if(e.checked){
+                    cPlatforms.push(e.value);
+                }
+            })
+
+            console.table(cGenres);
+            console.table(cPlatforms);
+        }
+        else {
+            ohSnap("Please fill up all fields!", {color: 'red'});
+        }
+    })
+    
     var login = document.getElementById("login-form");
 
-    login.addEventListener("keyup", function(event) {
-        if(event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("login-btn").click();
-        }
-    })
-
+    if(login) {
+        login.addEventListener("keyup", function(event) {
+            if(event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("login-btn").click();
+            }
+        })
+    }
+    
     var register = document.getElementById("regForm");
 
-    register.addEventListener("keyup", function(event) {
-        if(event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("sign-up").click();
-        }
-    })
+    if(register) {
+        register.addEventListener("keyup", function(event) {
+            if(event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("sign-up").click();
+            }
+        })
+    }
+    
 })

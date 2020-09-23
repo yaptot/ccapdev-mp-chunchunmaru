@@ -945,3 +945,58 @@ button-holder img {
   font-size: 14px;
   font-family: Overpass;
 }
+
+.form-label {
+  font-family: Overpass;
+  margin-right: 10px;
+  padding-top: 6px;
+}
+
+.form-grid {
+  display:grid;
+  grid-template-columns: 15% 85%;
+  text-align: left;
+}
+
+.gameInput {
+  background-color: #2f2f2f;
+  border: none;
+  border-left: 4px solid #13c4a3;
+  border-radius: 4px;
+  width: 50%;
+  color: #f5f6f7;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+.gameCheck {
+  margin-right: 10px;
+}
+
+.check-label {
+  margin-right: 20px;
+}
+
+.add-texta {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-left: 4px solid #13c4a3;
+  border-radius: 4px;
+  padding: 6px;
+  background-color: #2f2f2f;
+  color: #f5f6f7;
+}
+
+.submit-game {
+  background-color: #13c4a3;
+  color: #f5f6f7;
+  border-radius: 4px;
+  border-style: none;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.plat-col {
+  flex-wrap: wrap;
+}

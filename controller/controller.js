@@ -446,6 +446,16 @@ const functions = {
         })
     },
 
+    
+    getAdminPage    : async function(req, res) {
+        let user = await userModel.findOne({username:req.session.user.username})
+        user = JSON.parse(JSON.stringify(user));
+        res.render("adminPage",{
+            user:user,
+            adminPage: true
+        })
+    },
+
     postRegister    : async function(req, res){
         let {username, password, email} = req.body
         console.log(username);

@@ -15,6 +15,7 @@ router.get('/genre/:genre', controller.getGenre)
 router.get('/platform/:platform', controller.getPlatform)
 router.get('/viewGame/:_id', controller.getViewGame)
 router.get('/profile', controller.getProfile)
+router.get('/admin', controller.getAdminPage)
 
 //Post methods
 router.post('/register', middleware.validateReg, controller.postRegister)

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apdev-mp2</title>
+</head>
+<body>
+    {{#if user}}
+        {{> navbar-user}}
+        {{> prof-nav-admin}}
+    {{/if}}
+    <div class="container">
+        <h2 class="prof-header" style="font-size: 20px; margin-top: 30px;">Add a Game</h2>
+        <form id="addGame" method="post" class="form-grid">
+            <label class="form-label" for="gameName">Name</label><input type="text" class="gameInput" name="gameName" placeholder="ex. VALORANT">
+            <label class="form-label" for="publisher">Publisher</label><input type="text" class="gameInput" name="publisher" placeholder="ex. Riot Games">
+            <label class="form-label" for="publishDate">Date Published</label><input type="date" class="gameInput" name="publishDate">
+            <label class="form-label">Description</label><textarea class="add-texta" name="gamedesc" placeholder="Add Description Here"></textarea>
+            <label class="form-label">Genre</label>
+            <div style="margin-top:10px;">
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="FPS"><label class="check-label">FPS</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="ADVENTURE"><label class="check-label">Adventure</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="SCI-FI"><label class="check-label">Sci-fi</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="FANTASY"><label class="check-label">Fantasy</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="ACTION"><label class="check-label">Action</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="RPG"><label class="check-label">RPG</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="VISUAL NOVEL"><label class="check-label">Visual Novel</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="VEHICLE SIMULATION"><label class="check-label">Vehicle Simulation</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="BATTLE ROYALE"><label class="check-label">Battle Royale</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="genre[]" value="STRATEGY"><label class="check-label">Strategy</label></span>
+            </div>
+            <label class="form-label">Platforms</label>
+            <div style="margin-top:10px;">
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="PC"><label class="check-label">PC</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="PS4"><label class="check-label">PS4</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="XBOX One"><label class="check-label">XBOX One</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="PSP"><label class="check-label">PSP</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="Game Boy"><label class="check-label">Game Boy</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="NDS"><label class="check-label">NDS</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="PS3"><label class="check-label">PS3</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="Nintendo Switch"><label class="check-label">Nintendo Switch</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="Wii"><label class="check-label">Wii</label></span>
+                <span class="gameCheck"><input type="checkbox" class="gameCheck" name="platform[]" value="PSVita"><label class="check-label">PSVita</label></span>
+            </div>
+            <button type="button" id="submitGame" class="submit-game">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
