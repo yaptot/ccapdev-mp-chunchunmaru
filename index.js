@@ -36,7 +36,12 @@ app.engine('hbs', hbs.create({
 }).engine);
 app.set('view engine', 'hbs');
 
-mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.h8ven.mongodb.net/Gamerist?retryWrites=true&w=majority`, {
+// mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.h8ven.mongodb.net/Gamerist?retryWrites=true&w=majority`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }).then(() => console.log('connected'), err => console.log(err));
+
+mongoose.connect(`mongodb://localhost/Gamerist`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('connected'), err => console.log(err));
@@ -44,6 +49,9 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@clus
 const router = require('./router/router');
 app.use('/', router);
 
-app.listen(process.env.PORT, function(){
+// app.listen(process.env.PORT, function(){
+//     console.log("I love you 3000")
+// })
+app.listen(3000, function(){
     console.log("I love you 3000")
 })

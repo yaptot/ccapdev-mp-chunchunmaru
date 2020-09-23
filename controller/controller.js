@@ -419,6 +419,10 @@ const functions = {
         req.session.user = user;
         var ratings = 0;
         var tot = 0
+        let isAdmin = false
+
+        if(user.userType === "admin")
+        isAdmin = true
 
         let playing = user.gameList.filter(e => e.status === "Playing");
         let completed = user.gameList.filter(e => e.status === "Completed")
@@ -439,6 +443,7 @@ const functions = {
         
         res.render("profile",{
             user:user,
+            isAdmin:isAdmin,
             profpage: true,
             total:total,
             playing:playing.length,
@@ -494,15 +499,19 @@ const functions = {
         
     },
     postAddGame : function(req, res){
-        let name = req.body.name
-        let publisher = req.body.publisher
-        let publish= req.body.publish
-        let genre= req.body.genre.split(',')
-        let filename= req.body.filename
-        let description=req.body.description
-        let platforms=req.body.platforms.split(',')
-
-        publish = new Date(publish)
+        let name = req.body.gameName
+        console.log(req.body.gameName)
+        let publisher= req.body.publisher;
+        console.log(publisher)
+        let publish = req.body.publishDate;
+        console.log(publish)
+        let genre = req.body.genres
+        console.log(genre)
+        let filename= "https://cutewallpaper.org/21/gamer-phone-wallpaper/76+-Video-Game-Phone-Wallpapers-on-WallpaperSafari.jpg";
+        let description=req.body.gamedesc
+        console.log(description)
+        let platforms= req.body.platforms
+        console.log(platforms)
 
         let doc = new gameModel({
             name:name,
@@ -519,7 +528,7 @@ const functions = {
                 return console.error(error)
             }
             else{
-                res.redirect("/")
+                res.redirect("/admin")
                 console.log(name+"Added")
             }
         })

@@ -8,8 +8,13 @@
 <body>
     {{#if user}}
         {{> navbar-user}}
-        {{> prof-nav-admin}}
     {{/if}}
+    {{#if isAdmin}}
+        {{> prof-nav-admin}}
+    {{else}}
+        {{> prof-nav}}
+    {{/if}}
+    
     <div class="container prof-content">
         <div class="prof-content-grid">
             <div class="section">

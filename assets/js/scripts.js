@@ -74,8 +74,8 @@ $(document).ready(function() {
                 $("span#err-login").text("All fields must be filled up.");
             }
          })
-
          if(checks) {
+             console.log(form)
             $.ajax({
                 url: "/login",
                 type: 'POST',
@@ -103,7 +103,6 @@ $(document).ready(function() {
     })
 
     $("button#submitGame").click(function() {
-        console.log("tangina mo eugene");
         var form = $("form#addGame").serializeArray();
     
         let checks = true;
@@ -115,7 +114,6 @@ $(document).ready(function() {
         if(checks) {
             var platforms = document.forms['addGame'].elements['platform[]'];
             var genres = document.forms['addGame'].elements['genre[]'];
-
             let cGenres = [];
             let cPlatforms = [];
 
@@ -139,16 +137,20 @@ $(document).ready(function() {
             else if(!cPlatforms.length)
                 ohSnap("Please select at least one platform!", {color: 'red'});
             else {
+                console.log(form)
                 $.ajax({
-                    url:'',
+                    url:"/addGame",
                     method:'POST',
                     data: {
-                        form: form,
+                        gameName: form[0].value,
+                        publisher: form[1].value,
+                        publishDate: form[2].value,
+                        gamedesc: form[3].value,
                         genres: cGenres,
                         platforms: cPlatforms
                     },
                     success: function() {
-
+                        
                     },
                     error: function() {
                         

@@ -21,10 +21,11 @@ router.get('/populate', controller.getPopulate)
 //Post methods
 router.post('/register', middleware.validateReg, controller.postRegister)
 router.post('/login', middleware.validateUser, controller.postLogin)
-router.post('/addgame', controller.postAddGame)
+router.post('/addGame', controller.postAddGame)
 router.post('/addList/:_id', controller.postAddList)
 router.post('/deleteGame', controller.postDeleteGame)
 router.post('/updateStatus/:_id', controller.postUpdateStatus)
 router.post('/addReview/:_id', controller.postAddReview)
+
 
 module.exports = router;
