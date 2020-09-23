@@ -212,6 +212,13 @@ const functions = {
             email: "eugeneperez123@gmail.com",
             gameList:[
                 {game:valorantID, status:"Completed", rating:10, review:""}]
+        },{
+            userType: "admin",
+            username: "taguro",
+            password: "tapusin",
+            email: "taguro@gmail.com",
+            gameList:[
+                {game:valorantID, status:"Playing", rating:8, review:""}]
         }]).then(function(){
             console.log("Is it in yet?(2)")
         })

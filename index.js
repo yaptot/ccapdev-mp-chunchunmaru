@@ -1,14 +1,15 @@
-const mongoose = require("mongoose")
-const express = require("express")
-const bodyparser = require("body-parser")
-const hbs = require("express-handlebars")
-const cookie = require("cookie-parser")
-const session = require("express-session")
+const mongoose = require("mongoose");
+const express = require("express");
+const bodyparser = require("body-parser");
+const hbs = require("express-handlebars");
+const cookie = require("cookie-parser");
+const session = require("express-session");
 
+require("dotenv").config();
 // const userModel = require('./models/userModel')
 // const gameModel = require('./models/gameModel')
 
-const app = express()
+const app = express();
 app.use(cookie())
 app.use(session({
     secret:"awjidioajodhau12312",
@@ -35,7 +36,7 @@ app.engine('hbs', hbs.create({
 }).engine);
 app.set('view engine', 'hbs');
 
-mongoose.connect('mongodb://localhost/Gamerist', {
+mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.h8ven.mongodb.net/Gamerist?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('connected'), err => console.log(err));
@@ -43,6 +44,6 @@ mongoose.connect('mongodb://localhost/Gamerist', {
 const router = require('./router/router');
 app.use('/', router);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log("I love you 3000")
 })
