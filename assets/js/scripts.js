@@ -114,24 +114,24 @@ $(document).ready(function() {
                 checks = false;
         })
 
-        let genres = JSON.parse(genreInput.value);
-        let platforms = JSON.parse(platformInput.value);
-
-        console.log(genres);
-        console.log(platforms);
-
-        let cGenres = [];
-        let cPlatforms = [];
-
-        genres.forEach(e => {
-            cGenres.push(e.value);
-        })
-
-        platforms.forEach(e => {
-            cPlatforms.push(e.value);
-        })
-
         if(checks) {
+            let genres = JSON.parse(genreInput.value);
+            let platforms = JSON.parse(platformInput.value);
+
+            console.log(genres);
+            console.log(platforms);
+
+            let cGenres = [];
+            let cPlatforms = [];
+
+            genres.forEach(e => {
+                let text = e.value.toUpperCase();
+                cGenres.push(text);
+            })
+
+            platforms.forEach(e => {
+                cPlatforms.push(e.value);
+            })
             $.ajax({
                 url:"/addGame",
                 method:'POST',
