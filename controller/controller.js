@@ -233,8 +233,10 @@ const functions = {
             for (let j = 0; j < users.length; j++) {
                 let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name && e.game.rating !== null);
                 if (index !== -1) {
-                    ratings[i].rating += users[j].gameList[index].rating;
-                    ratings[i].count++;
+                    if(!(users[j].gameList[index].rating === null)){
+                        ratings[i].rating += users[j].gameList[index].rating;
+                        ratings[i].count++;
+                    }   
                 }
             }
             games.push({_id:dbgames[i]._id, game: dbgames[i].name, filename: dbgames[i].filename, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
@@ -386,9 +388,12 @@ const functions = {
                 ratings.push({game: dbgames[i].name, rating: 0, count: 0});
                 for (let j = 0; j < users.length; j++) {
                     let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name && e.game.rating !== null);
+
                     if (index !== -1) {
-                        ratings[i].rating += users[j].gameList[index].rating;
-                        ratings[i].count++;
+                        if(!(users[j].gameList[index].rating === null)){
+                            ratings[i].rating += users[j].gameList[index].rating;
+                            ratings[i].count++;
+                        }   
                     }
                 }
                 ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
