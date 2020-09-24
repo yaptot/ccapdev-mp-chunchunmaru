@@ -26,6 +26,17 @@ const functions = {
             }
         }
         res.status(401).send({msg: "Incorrect Credentials"})
+    },
+
+    validateGame    : async function(req, res, next){
+        var gameName = new RegExp('^' + req.body.gameName + '$', 'i');
+        let name = req.body.gameName
+        gameModel.aggregate([{$match: {name:gameName}}], function(err, data){
+            if(err) console.log(err)
+            else if(data.length > 0){
+               res.status(401).send({msg: name + " already exists"}); 
+            }else return next()
+        })
     }
 }
 

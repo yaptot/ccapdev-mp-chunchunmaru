@@ -21,7 +21,7 @@ router.get('/populate', controller.getPopulate)
 //Post methods
 router.post('/register', middleware.validateReg, controller.postRegister)
 router.post('/login', middleware.validateUser, controller.postLogin)
-router.post('/addGame', controller.postAddGame)
+router.post('/addGame', middleware.validateGame, controller.postAddGame)
 router.post('/addList/:_id', controller.postAddList)
 router.post('/deleteGame', controller.postDeleteGame)
 router.post('/updateStatus/:_id', controller.postUpdateStatus)
