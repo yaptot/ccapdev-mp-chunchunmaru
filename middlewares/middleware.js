@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel")
 const gameModel = require("../models/gameModel")
+const bcrypt = require('bcrypt')
 
 const functions = {
     validateReg   : async function(req, res, next){
