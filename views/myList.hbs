@@ -10,7 +10,11 @@
 <body>
     {{#if user}}
         {{> navbar-user}}
+    {{#if isAdmin}}
+        {{> prof-nav-admin}}
+    {{else}}
         {{> prof-nav}}
+    {{/if}}
     <div class="container">
         <h1 class="list-heading">Playing</h1>
         {{#if playing}}

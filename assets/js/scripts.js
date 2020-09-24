@@ -164,11 +164,11 @@ $(document).ready(function() {
 
     $("i.delete-icon").click(function() {
         let id = $(this).attr("data-id");
-
+        console.log("AJAX ID:"+id);
         $.ajax({
-            url: '',
+            url: '/deleteGame',
             method: 'post',
-            data: id,
+            data: {id},
             success: function() {
                 ohSnap("Game Deleted!", {color: 'green'});
                 $("div[data-id="+id+"]").remove();

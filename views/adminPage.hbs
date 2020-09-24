@@ -8,7 +8,11 @@
 <body>
     {{#if user}}
         {{> navbar-user}}
+    {{#if isAdmin}}
         {{> prof-nav-admin}}
+    {{else}}
+        {{> prof-nav}}
+    {{/if}}
     {{/if}}
     <div class="container">
         <h2 class="prof-header" style="font-size: 20px; margin-top: 30px;">Add a Game</h2>

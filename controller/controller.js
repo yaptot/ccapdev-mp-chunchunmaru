@@ -277,6 +277,10 @@ const functions = {
         let user = await userModel.findOne({username:req.session.user.username}).populate("gameList.game")
         user = JSON.parse(JSON.stringify(user))
         req.session.user = user
+        let isAdmin = false
+
+        if(user.userType === "admin")
+        isAdmin = true
 
         let playing = user.gameList.filter(e => e.status === "Playing")
         let completed = user.gameList.filter(e => e.status === "Completed")
@@ -286,6 +290,7 @@ const functions = {
         res.render("myList", {
             user:user,
             mylist: true,
+            isAdmin:isAdmin,
             playing:playing,
             completed:completed,
             planning:planning,
@@ -462,9 +467,14 @@ const functions = {
     getAdminPage    : async function(req, res) {
         let user = await userModel.findOne({username:req.session.user.username})
         user = JSON.parse(JSON.stringify(user));
+        let isAdmin = false
+
+        if(user.userType === "admin")
+        isAdmin = true
         res.render("adminPage",{
             user:user,
-            adminPage: true
+            adminPage: true,
+            isAdmin: isAdmin
         })
     },
 
@@ -548,19 +558,18 @@ const functions = {
 
     postDeleteGame  : async function(req, res){
         let user = req.session.user
-        let game = req.body.gameName
+        let game = req.body.id
+       
+        let dbgame = await gameModel.findOne({_id:game})
 
-        let dbgame = await gameModel.findOne({name:game})
-        console.log(dbgame)
         await userModel.findOneAndUpdate(user, {$pull: {gameList: {game:dbgame}}},{useFindAndModify: false},async function(err){
-            if(err) console.log(err)
+            if(err) {
+               console.log(err) 
+            }
             else{
                 user = await userModel.findOne({username:user.username})
                 req.session.user = user
-                console.log("userFound:"+req.session.user)
-                res.render("index.hbs", {
-                    user:req.session.user
-                })
+                res.status(200).send()
             }
         })
     },
