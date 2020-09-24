@@ -1,5 +1,8 @@
 const userModel = require('../models/userModel')
 const gameModel = require('../models/gameModel')
+const bcrypt = require('bcrypt')
+
+const saltRounds = 10;
 
 const functions = {
 
@@ -486,10 +489,13 @@ const functions = {
     postRegister    : async function(req, res){
         let {username, password, email} = req.body
         console.log(username);
+
+        let crypt = await bcrypt.hash(password, saltRounds)
+
         let doc = new userModel({
             userType: "member",
             username: username,
-            password: password,
+            password: crypt,
             email: email,
             gameList: []
         })
@@ -502,16 +508,14 @@ const functions = {
 
     postLogin   : async function(req, res){
         let {username} = req.body
-        let {password} = req.body
+
         let result = await userModel.findOne({
-            username: username,
-            password: password
+            username: username
         }).populate("gameList.game")
         if(result){
             req.session.user = result
             res.status(200).send()
         }
-        
     },
     postAddGame : function(req, res){
         let name = req.body.gameName

@@ -16,12 +16,13 @@ const functions = {
 
     validateUser    : async function(req, res, next){
         let {username, password} = req.body
-
+        
         let userExists = await userModel.findOne({
             username:username
         })
         if(userExists){
-            if(userExists.password === password){
+            let comp = await bcrypt.compare(password, userExists.password)
+            if(comp){
                 return next()
             }
         }
