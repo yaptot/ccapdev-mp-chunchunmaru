@@ -9,13 +9,14 @@ Gamerist is a web application that aims to allow a user to organize the list of 
 2. In `cmd.exe` run `mongod.exe` in the background.
 
 ## Dependencies
-- express
-- express-handlebars
-- express-session
-- body-parser
-- cookie-parser
-- mongoose
-- nodemon
+- [express](https://www.npmjs.com/package/express)
+- [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+- [express-session](https://www.npmjs.com/package/express-session)
+- [body-parser](https://www.npmjs.com/package/body-parser)
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Setting up and running locally
 1. To run the server, open up the command prompt and navigate through the folder where the files are contained. To install the needed node_modules, use the command `npm i`
@@ -31,6 +32,9 @@ The following user accounts are provided for the user:
 | yaptot | class |
 | voidgenon | cisco |
 | perez | abcd12345 |
+| taguro | tapusin |
+
+The user account "taguro" is an administrator account.
 
 Additional accounts may be created through registering.
 
@@ -38,4 +42,3 @@ Additional accounts may be created through registering.
 - CAI, Terrence Jake S.
 - PEREZ, Eugene Guiller B.
 - YAP, Rupert Myles B.
-
