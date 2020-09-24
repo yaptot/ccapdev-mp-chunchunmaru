@@ -21,10 +21,10 @@
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
             {{#each playing}}
-            <div class="row list-head-row">
+            <div data-id="{{{this.game._id}}}" class="row list-head-row">
                     <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                    <div class="col-xl-8 d-flex align-items-center title-col"><a class="playing-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
-                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                    <div class="col-xl-8 d-flex align-items-center title-col"><a class="playing-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-playing"></i></div>
+                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                     <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
@@ -47,10 +47,10 @@
             </div>
         
             {{#each completed}}
-            <div class="row list-head-row">
+            <div data-id="{{{this.game._id}}}" class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="completed-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
-                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="completed-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-completed"></i></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
@@ -71,10 +71,10 @@
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
             {{#each planning}}
-            <div class="row list-head-row">
+            <div data-id="{{{this.game._id}}}" class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="planning-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
-                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="planning-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-planning"></i></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
@@ -96,10 +96,10 @@
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
             {{#each dropped}}
-            <div class="row list-head-row">
+            <div data-id="{{{this.game._id}}}" class="row list-head-row">
                 <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="dropped-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
-                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{this.rating}}</span></div>
+                <div class="col-xl-8 d-flex align-items-center title-col"><a class="dropped-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-dropped"></i></div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>

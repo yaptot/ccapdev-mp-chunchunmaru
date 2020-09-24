@@ -500,18 +500,12 @@ const functions = {
     },
     postAddGame : function(req, res){
         let name = req.body.gameName
-        console.log(req.body.gameName)
         let publisher= req.body.publisher;
-        console.log(publisher)
         let publish = req.body.publishDate;
-        console.log(publish)
         let genre = req.body.genres
-        console.log(genre)
         let filename= "https://cutewallpaper.org/21/gamer-phone-wallpaper/76+-Video-Game-Phone-Wallpapers-on-WallpaperSafari.jpg";
         let description=req.body.gamedesc
-        console.log(description)
         let platforms= req.body.platforms
-        console.log(platforms)
 
         let doc = new gameModel({
             name:name,
@@ -528,7 +522,7 @@ const functions = {
                 return console.error(error)
             }
             else{
-                res.redirect("/admin")
+                res.status(200).send();
                 console.log(name+"Added")
             }
         })

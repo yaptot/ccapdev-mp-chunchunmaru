@@ -137,7 +137,6 @@ $(document).ready(function() {
             else if(!cPlatforms.length)
                 ohSnap("Please select at least one platform!", {color: 'red'});
             else {
-                console.log(form)
                 $.ajax({
                     url:"/addGame",
                     method:'POST',
@@ -150,10 +149,10 @@ $(document).ready(function() {
                         platforms: cPlatforms
                     },
                     success: function() {
-                        
+                        ohSnap("Game Successfully Added!", {color: 'green'});
                     },
                     error: function() {
-                        
+                        ohSnap("Error in adding game", {color: 'red'});
                     }
                 })
             }
@@ -161,6 +160,23 @@ $(document).ready(function() {
         else {
             ohSnap("Please fill up all fields!", {color: 'red'});
         }
+    })
+
+    $("i.delete-icon").click(function() {
+        let id = $(this).attr("data-id");
+
+        $.ajax({
+            url: '',
+            method: 'post',
+            data: id,
+            success: function() {
+                ohSnap("Game Deleted!", {color: 'green'});
+                $("div[data-id="+id+"]").remove();
+            },
+            error: function() {
+                ohSnap("Game could not be deleted.", {color: 'red'});
+            }
+        })
     })
     
     var login = document.getElementById("login-form");

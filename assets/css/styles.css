@@ -386,14 +386,13 @@ button-holder img {
 
 #sign-up {
   background-color: #39a0ed;
-  margin-right: 9px;
+  margin-right: 50px;
   margin-left: 9px;
   font-size: 17px;
   text-align: center;
   color: #f5f6f7;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 5px;
+  padding: 8px;
   border-style: none;
 }
 
@@ -410,27 +409,25 @@ button-holder img {
 
 .genre-span {
   padding: 8px;
-  border-radius: 30px;
-  background: #13c4a3;
+  border-radius: 4px;
+  background: #3e90ed;
   margin-right: 10px;
-  color: #20201e;
   font-size: 14px;
   transition: 0.3s;
 }
 
 .browse-card-info1 .genre-span {
   padding: 8px;
-  border-radius: 30px;
-  background: #13c4a3;
+  border-radius: 4px;
+  background: #3e90ed;
   margin-right: 10px;
-  color: #20201e;
   font-size: 11px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .browse-card-info1 .genre-span:hover {
-  background: #1a7261;
+  background: #4380b9;
   color: #f5f6f7;
   cursor: pointer;
 }
@@ -617,10 +614,10 @@ button-holder img {
 }
 
 .browse-genre-span {
-  color: #20201e;
-  background-color: #13c4a3;
-  padding: 5px;
-  border-radius: 20px;
+  color: #f5f6f7;
+  background-color: #3e90ed;
+  padding: 7px 6px;
+  border-radius: 4px;
   font-size: 11px;
   margin-right: 2px;
   margin-left: 2px;
@@ -811,20 +808,40 @@ button-holder img {
   margin-right: 10px;
 }
 
+.playing-game {
+  transition: 0.3s;
+}
+
 .playing-game:hover {
-  color:#13c4a3
+  color:#13c4a3;
+  transition: 0.3s;
+}
+
+.completed-game {
+  transition: 0.3s;
 }
 
 .completed-game:hover {
   color: #39a0ed;
+  transition: 0.3s;
+}
+
+.planning-game {
+  transition: 0.3s;
 }
 
 .planning-game:hover {
   color: #fff854;
+  transition: 0.3s;
+}
+
+.dropped-game {
+  transition: 0.3s;
 }
 
 .dropped-game:hover {
-  color: #fc3d48
+  color: #fc3d48;
+  transition: 0.3s;
 }
 
 .alert {
@@ -999,4 +1016,60 @@ button-holder img {
 
 .plat-col {
   flex-wrap: wrap;
+}
+
+.delete-playing {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #13c4a3;
+  transition: 0.3s;
+}
+
+.delete-playing:hover {
+  color: #1a7261;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.delete-completed {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #39a0ed;
+  transition: 0.3s;
+}
+
+.delete-completed:hover {
+  color: #4380b9;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.delete-planning {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #fff854;
+  transition: 0.3s;
+}
+
+.delete-planning:hover {
+  color: #888530;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.delete-dropped {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #fc3d48;
+  transition: 0.3s;
+}
+
+.delete-dropped:hover {
+  color: #8d2126;
+  transition: 0.3s;
+  cursor: pointer;
 }
