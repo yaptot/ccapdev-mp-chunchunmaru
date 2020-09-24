@@ -188,14 +188,16 @@ const functions = {
         userModel.insertMany([{
             userType: "member",
             username: "lolz",
-            password: "cisco",
+            password: "$2b$10$VqfkDUHedlZfsOYh7VGWwOgsxZHtqhDFPn6/yIzj3TM5jhFEKGSwe",
+            //password: "cisco",
             email: "lolz@gmail.com",
             gameList:[
                 {game:valorantID, status:"Playing", rating:8, review:"I love this game! EZ jett main"}]
         },{
             userType: "member",
             username: "yaptot",
-            password: "class",
+            password: "$2b$10$XDtMc1jcNYlIWlRYQMi20uWKtYnvhNLFe7h3L4AN/xfKZ./hgg6I2",
+            //password: "class",
             email: "yaptot@gmail.com",
             gameList:[
                 {game:valorantID, status:"Playing", rating:9, review:"I love this game! Kaso binubuhat ako ni Eugene kaya ok lang!"},
@@ -203,7 +205,8 @@ const functions = {
         },{
             userType: "member",
             username: "voidgenon",
-            password: "cisco",
+            password: "$2b$10$EE3pIFOL8QfsVdjrnuyDKeJmRxtqxqJzzrK.O9AtYjTwpi.HoMKiG",
+            //password: "cisco",
             email: "voidgenon@gmail.com",
             gameList:[
                 {game:valorantID, status:"Playing", rating:7, review:"Dali naman magbuhat dito"},
@@ -211,14 +214,16 @@ const functions = {
         },{
             userType: "member",
             username: "perez",
-            password: "abcd12345",
+            password: "$2b$10$0hrdQMj2nU7E6klV1juCY.zuoD5jv9xagInbAa3X2tdL7jQIPU.M2",
+            //password: "abcd12345",
             email: "eugeneperez123@gmail.com",
             gameList:[
                 {game:valorantID, status:"Completed", rating:10, review:""}]
         },{
             userType: "admin",
             username: "taguro",
-            password: "tapusin",
+            password: "$2b$10$G4.A4b8a/5qoRIChw/th..1UYD5mf8WmJOP2Fh6Qs1Myu9YIq7kQi",
+            //password: "tapusin",
             email: "taguro@gmail.com",
             gameList:[
                 {game:valorantID, status:"Playing", rating:8, review:""}]
