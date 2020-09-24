@@ -485,6 +485,33 @@ const functions = {
             isAdmin: isAdmin
         })
     },
+    //***
+    comphash    : async function(req, res){
+        let user = await userModel.findOne({username:"taguro"})
+        let password = "tapusin"
+
+        let comp = await bcrypt.compare(password, user.password)
+        console.log(comp)
+    },
+    //***
+    getHashPassword    : async function(req, res){
+        let users = await userModel.find({})
+        console.log(users)
+        users.forEach(e=>{
+            console.log("before "+e.username+" "+e.password)
+        })
+        users.forEach(async e=>{
+            let hash = await bcrypt.hash(e.password, saltRounds)
+            await userModel.findOneAndUpdate({username:e.username}, {password:hash}, {useFindAndModify: false}, async function(err){
+                if(err)
+                console.log(err)
+            })
+        })
+        users = await userModel.find({})
+        users.forEach(e=>{
+            console.log("after"+e.username+" "+e.password)
+        })
+    },
 
     postRegister    : async function(req, res){
         let {username, password, email} = req.body
