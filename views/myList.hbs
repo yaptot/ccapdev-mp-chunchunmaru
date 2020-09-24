@@ -10,114 +10,128 @@
 <body>
     {{#if user}}
         {{> navbar-user}}
-    {{#if isAdmin}}
-        {{> prof-nav-admin}}
-    {{else}}
-        {{> prof-nav}}
+        {{#if isAdmin}}
+            {{> prof-nav-admin}}
+        {{else}}
+            {{> prof-nav}}
+        {{/if}}
     {{/if}}
     <div class="container">
         <h1 class="list-heading">Playing</h1>
-        {{#if playing}}
         <div class="item-table playing-table">
             <div class="row list-head-row">
-                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-7 title-col"><span class="item-heading">Title</span></div>
                 <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
+        {{#if playing}}
             {{#each playing}}
             <div data-id="{{{this.game._id}}}" class="row list-head-row">
-                    <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                    <div class="col-xl-8 d-flex align-items-center title-col"><a class="playing-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-playing"></i></div>
+                    <div class="col-xl-1 text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                    <div class="col-xl-7 d-flex align-items-center title-col"><a class="playing-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                     <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                     <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
                 {{/each}}
                 </div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-playing"></i></div>
             </div>
             {{/each}}
-        </div>
         {{else}}
-            <h6>No items on list.</h6>
+            <div class="row list-head-row">
+                <h6 style="margin-left: 50px;">No items on list.</h6>
+            </div>
         {{/if}}
+        </div>
 
         <h1 class="list-heading">Completed</h1>
-        {{#if completed}}
         <div class="item-table completed-table" style="border-left-style: solid;border-left-color: #39a0ed;">
             <div class="row list-head-row">
-                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-7 title-col"><span class="item-heading">Title</span></div>
                 <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
-        
+            {{#if completed}}
             {{#each completed}}
             <div data-id="{{{this.game._id}}}" class="row list-head-row">
-                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="completed-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-completed"></i></div>
+                <div class="col-xl-1 text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-7 d-flex align-items-center title-col"><a class="completed-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
                 {{/each}}
                 </div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-completed"></i></div>
             </div>
             {{/each}}
-        </div>
         {{else}}
-        <h6>No items on list.</h6>
+            <div class="row list-head-row">
+                <h6 style="margin-left: 50px;">No items on list.</h6>
+            </div>
         {{/if}}
+        </div>
         <h1 class="list-heading">Planning</h1>
-        {{#if planning}}
         <div class="item-table planning-table">
             <div class="row list-head-row">
-                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-7 title-col"><span class="item-heading">Title</span></div>
                 <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
+            {{#if planning}}
             {{#each planning}}
             <div data-id="{{{this.game._id}}}" class="row list-head-row">
-                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="planning-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-planning"></i></div>
+                <div class="col-xl-1 text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-7 d-flex align-items-center title-col"><a class="planning-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
                 {{/each}}
                 </div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-planning"></i></div>
             </div>
             {{/each}}
-        </div>
         {{else}}
-            <h6>No items on list.</h6>
+            <div class="row list-head-row">
+                <h6 style="margin-left: 50px;">No items on list.</h6>
+            </div>
         {{/if}}
+        </div>
         
         <h1 class="list-heading">Dropped</h1>
-        {{#if dropped}}
         <div class="item-table dropped-table">
             <div class="row list-head-row">
-                <div class="col title-col"><span class="item-heading">Title</span></div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-7 title-col"><span class="item-heading">Title</span></div>
                 <div class="col-xl-1 text-center"><span class="item-heading">Score</span></div>
                 <div class="col-xl-2 text-center"><span class="item-heading">Platforms</span></div>
             </div>
+            {{#if dropped}}
             {{#each dropped}}
             <div data-id="{{{this.game._id}}}" class="row list-head-row">
-                <div class="col text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
-                <div class="col-xl-8 d-flex align-items-center title-col"><a class="dropped-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-dropped"></i></div>
+                <div class="col-xl-1 text-center list-img-holder"><img class="list-img" src="{{{this.game.filename}}}"></div>
+                <div class="col-xl-7 d-flex align-items-center title-col"><a class="dropped-game" href="/viewGame/{{this.game._id}}">{{this.game.name}}</a></div>
                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><span class="item-title">{{#if this.rating}}{{this.rating}}{{else}}-{{/if}}</span></div>
                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center plat-col">
                 {{#each this.game.platforms}}
                     <span class="item-title">{{this}}</span>
                 {{/each}}
                 </div>
+                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center"><i data-id="{{{this.game._id}}}" class="fa fa-trash-o delete-icon delete-dropped"></i></div>
             </div>
             {{/each}}
-        </div>
         {{else}}
-            <h6>No items on list.</h6>
+            <div class="row list-head-row">
+                <h6 style="margin-left: 50px;">No items on list.</h6>
+            </div>
         {{/if}}
-
+        </div>
     </div>
-    {{/if}}
 </body>
 
 </html>

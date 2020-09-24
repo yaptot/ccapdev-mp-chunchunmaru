@@ -102,67 +102,61 @@ $(document).ready(function() {
         $("form#review-form").toggle();
     })
 
+    var genreInput = document.querySelector('input[name=genre]');
+    var platformInput = document.querySelector('input[name=platform]');
+
     $("button#submitGame").click(function() {
         var form = $("form#addGame").serializeArray();
     
         let checks = true;
-        for(let i = 0; i < 4; i++) {
-            if(validator.isEmpty(form[i].value))
+        form.forEach(e => {
+            if(validator.isEmpty(e.value))
                 checks = false;
-        }
-    
+        })
+
+        let genres = JSON.parse(genreInput.value);
+        let platforms = JSON.parse(platformInput.value);
+
+        console.log(genres);
+        console.log(platforms);
+
+        let cGenres = [];
+        let cPlatforms = [];
+
+        genres.forEach(e => {
+            cGenres.push(e.value);
+        })
+
+        platforms.forEach(e => {
+            cPlatforms.push(e.value);
+        })
+
         if(checks) {
-            var platforms = document.forms['addGame'].elements['platform[]'];
-            var genres = document.forms['addGame'].elements['genre[]'];
-            let cGenres = [];
-            let cPlatforms = [];
-
-            genres.forEach(e => {
-                if(e.checked){
-                    cGenres.push(e.value);
+            $.ajax({
+                url:"/addGame",
+                method:'POST',
+                data: {
+                    gameName: form[0].value,
+                    publisher: form[1].value,
+                    publishDate: form[2].value,
+                    gamedesc: form[3].value,
+                    genres: cGenres,
+                    platforms: cPlatforms
+                },
+                success: function() {
+                    ohSnap("Game Successfully Added!", {color: 'green'});
+                },
+                error: function() {
+                    ohSnap("Error in adding game", {color: 'red'});
                 }
             })
-
-            platforms.forEach(e => {
-                if(e.checked){
-                    cPlatforms.push(e.value);
-                }
-            })
-
-            console.table(cGenres);
-            console.table(cPlatforms);
-
-            if(!cGenres.length)
-                ohSnap("Please select at least one genre!", {color: 'red'});
-            else if(!cPlatforms.length)
-                ohSnap("Please select at least one platform!", {color: 'red'});
-            else {
-                $.ajax({
-                    url:"/addGame",
-                    method:'POST',
-                    data: {
-                        gameName: form[0].value,
-                        publisher: form[1].value,
-                        publishDate: form[2].value,
-                        gamedesc: form[3].value,
-                        genres: cGenres,
-                        platforms: cPlatforms
-                    },
-                    success: function() {
-                        ohSnap("Game Successfully Added!", {color: 'green'});
-                    },
-                    error: function() {
-                        ohSnap("Error in adding game", {color: 'red'});
-                    }
-                })
-            }
         }
         else {
             ohSnap("Please fill up all fields!", {color: 'red'});
         }
     })
 
-    $("i.delete-icon").click(function() {
+    $(".delete-icon").click(function() {
         let id = $(this).attr("data-id");
         console.log("AJAX ID:"+id);
         $.ajax({
@@ -179,6 +173,11 @@ $(document).ready(function() {
         })
     })
     
+    if(genreInput && platformInput){
+        new Tagify(genreInput);
+        new Tagify(platformInput);
+    }
+
     var login = document.getElementById("login-form");
 
     if(login) {
