@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="reviews">
-                <span class="review-head">Reviews</span>{{#if notListed}}{{else}}<i id="add-review-toggle" class="fa fa-edit edit-icon" {{#if user}}{{else}}onclick="unauthorized()"{{/if}}></i>{{/if}}
+                <span class="review-head">Reviews</span>{{#if notListed}}{{else}}{{#if user}}<i id="add-review-toggle" class="fa fa-edit edit-icon" ></i>{{/if}}{{/if}}
                 <form id="review-form" method="POST" action="/addReview/{{{game._id}}}">
                         <strong>Rating:</strong> 
                         <select name="rating" class="rating-select">
