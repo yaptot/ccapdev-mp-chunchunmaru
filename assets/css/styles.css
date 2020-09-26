@@ -124,13 +124,13 @@ body {
 
 a {
   color: #f5f6f7;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
 a:hover {
   text-decoration: none;
   color: #39a0ed;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
 .card-body {
@@ -339,10 +339,13 @@ button-holder img {
   width: 220px;
 }
 
-.desc-p,
-.review-p {
-  font-size: 14px;
-  margin-top: 6px;
+.desc-p{
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 900px;
+  padding: 15px 0;
+  padding-right: 100px;
+  margin-top: 20px;
 }
 
 .game-desc {
@@ -369,16 +372,13 @@ button-holder img {
 }
 
 .game-head {
-  color: #39a0ed;
   font-weight: 600;
-  border-color: #39a0ed;
-  margin-bottom: 10px;
   font-family: Overpass, sans-serif;
   font-size: 35px;
 }
 
 .game-publisher {
-  color: #13c4a3;
+  color: #39a0ed;
   margin-bottom: 10px;
   font-family: Overpass, sans-serif;
   font-weight: 600;
@@ -405,12 +405,13 @@ button-holder img {
   border-radius: 4px;
   padding: 24px;
   text-align: left;
+  height: auto;
 }
 
 .genre-span {
-  padding: 8px;
+  padding: 8px 13px;
   border-radius: 4px;
-  background: #3e90ed;
+  background: #39a0ed;
   margin-right: 10px;
   font-size: 14px;
   transition: 0.3s;
@@ -441,18 +442,10 @@ button-holder img {
   font-size: 14px;
 }
 
-#add-review-toggle {
-  background-color: #13c4a3;
-  border: none;
-}
-
-#add-review-toggle:hover {
-  background-color: #1a7261;
-}
-
 #review-form {
   display: none;
   margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 #add-review {
@@ -466,13 +459,14 @@ button-holder img {
 
 .review-area {
   margin-top: 10px;
+  margin-bottom: 10px;
   height: 100%;
   width: 100%;
+  background-color: #2f2f2f;
 }
 
 .add-to-list {
   color: #f5f6f7;
-  border-radius: 4px;
   border-style: none;
   background-color: #39a0ed;
 }
@@ -482,11 +476,12 @@ button-holder img {
 }
 
 .game-score {
-  color: #fff854;
+  background-color: #179b82;
+  border-radius: 4px;
+  padding: 25px;
+  text-align: center;
   font-weight: 600;
-  margin-bottom: 11px;
   font-family: Overpass, sans-serif;
-  font-size: 19px;
 }
 
 .review-label {
@@ -524,18 +519,6 @@ button-holder img {
   color: #13c4a3;
   font-weight: 600;
   display: block;
-}
-
-.review-score {
-  color: #fff854;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 3px;
-}
-
-.review-content {
-  margin-top: 30px;
-  border-bottom: 2px solid #1a7261;
 }
 
 .review-content.last {
@@ -791,17 +774,17 @@ button-holder img {
 }
 
 .review-area {
-  background-color: #20201e;
   color: #f5f6f7;
   border-radius: 4px;
   border: none;
 }
 
 .rating-select, .select-status {
-  background-color: #20201e;
+  background-color: #2f2f2f;
   color: #f5f6f7;
   border: none;
   border-radius: 4px;
+  padding: 5px;
 }
 
 .item-title {
@@ -1072,4 +1055,66 @@ button-holder img {
   color: #8d2126;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.game-img {
+  height: 300px;
+  width: 215px;
+}
+
+.gamepage-head, .gamepage-content {
+  display: grid;
+  grid-template-columns: 215px auto;
+  grid-column-gap: 30px;
+  width: 100%;
+}
+
+.head-grid {
+  display: grid;
+  grid-template-columns: 90% auto;
+}
+
+.side-content {
+  border-radius: 4px;
+  background-color: #2f2f2f;
+}
+
+.review-head {
+  font-family: Overpass;
+  font-weight: 600;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.review-div {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+.review-header {
+  display: grid;
+  grid-template-columns: 95% auto;
+}
+
+.review-score {
+  background-color: #179b82;
+  border-radius: 4px;
+  padding: 7px;
+  text-align: center;
+  font-weight: 600;
+  font-family: Overpass, sans-serif;
+}
+
+.edit-icon {
+  color: #13c4a3; 
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.edit-icon:hover {
+  color: #1a7261;
+  cursor: pointer;
+  transition: 0.3s;
 }

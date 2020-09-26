@@ -4,7 +4,8 @@
   "description": "You are a boulder, I am a mountain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.10.1",
     "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "12.18.3"
   }
 }

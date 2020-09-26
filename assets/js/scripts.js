@@ -94,11 +94,7 @@ $(document).ready(function() {
          }
     })
 
-    $("button#add-list-toggle").click(function() {
-        $("div#select-container").toggle();
-    })
-
-    $("button#add-review-toggle").click(function() {
+    $("#add-review-toggle").click(function() {
         $("form#review-form").toggle();
     })
 
@@ -199,5 +195,44 @@ $(document).ready(function() {
             }
         })
     }
-    
 })
+
+function unauthorized() {
+    ohSnap('Please Login!', {color:'red'});
+}
+
+function addGame() {
+    let status = $("#select-status option:selected").val(); 
+    console.log(status);
+    let id = $("#add-list-btn").attr("data-id");
+
+    $.ajax({
+        url: '/addList/'+id,
+        method: 'POST',
+        data: {status: status},
+        success: function() {
+            ohSnap('Game successfully added to list!', {color: 'green'});
+        },
+        error: function() {
+            ohSnap('Game could not be added to list.', {color: 'red'});
+        }
+    })
+}
+
+function updateStatus() {
+    let status = $("#select-status option:selected").val(); 
+    console.log(status);
+    let id = $("#add-review").attr("data-id");
+
+    $.ajax({
+        url: '/updateStatus/'+id,
+        method: 'POST',
+        data: {status: status},
+        success: function(result, s) {
+            ohSnap(result.msg, {color: 'green'});
+        },
+        error: function() {
+            ohSnap('Status could not be updated.', {color: 'red'});
+        }
+    })
+}
