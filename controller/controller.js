@@ -425,7 +425,7 @@ const functions = {
             isReviewed:isReviewed,
             reviewedtext:reviewedtext,
             game:JSON.parse(JSON.stringify(dbgame)),
-            aveRating:aveRating,
+            aveRating:Math.round(aveRating),
             count:ave.filter(e => e.game === dbgame.name)[0].count,
             notListed:notListed
         })
@@ -472,7 +472,7 @@ const functions = {
             completedPercent: (completed.length / total) * 100 + "%",
             planningPercent: (planning.length / total) * 100 + "%",
             droppedPercent: (dropped.length / total) * 100 + "%",
-            mean:ratings/tot
+            mean:Math.round(ratings/tot)
         })
     },
 
