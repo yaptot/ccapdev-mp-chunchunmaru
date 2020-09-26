@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -9,84 +8,71 @@
 </head>
 
 <body>
+    <title>{{game.name}}</title>
     {{#if user}}
-        {{> navbar-user}}
+    {{> navbar-user}}
     {{else}}
-        {{> navbar}}
+    {{> navbar}}
     {{/if}}
-    
+
     {{#if game}}
     <div class="container">
-        <div class="row">
-            <div class="col-xl-3 game-col">
+        <div class="gamepage-head">
+            <div class="head-left">
+                <div class="game-img"><img src="{{{game.filename}}}"
+                        style="height: 100%; width: 100%; border-radius: 4px;"></div>
+                <div class="action">
+                    {{#if notListed}}
+                    <form method="POST" action="/addList/{{{game._id}}}">
+                    {{else}}
+                    <form method="POST" action="/updateStatus/{{{game._id}}}">
+                    {{/if}}
+                        <div class="input-group mb-3" style="margin-top: 20px;">
+                            <div class="input-group-prepend">
+                                <button data-id="{{{game._id}}}" id="add-list-btn" class="btn btn-primary add-to-list" type="button" {{#if user}}{{#if notListed}} onclick="addGame()"{{else}} onclick="updateStatus()" {{/if}} {{else}} onclick="unauthorized()" {{/if}}>+ List</button>
+                            </div>
+                            <select id="select-status" class="custom-select select-status" name="status">
+                                <option value="Playing">Playing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Planning">Planning to Play</option>
+                                <option value="Dropped">Dropped</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="head-right">
+                <div class="head-grid">
+                    <div>
+                        <div class="game-head">{{game.name}}</div>
+                        <h4 class="game-publisher">{{game.publisher}}</h4>
+                    </div>
+                    <h2 class="game-score">{{aveRating}}</h2>
+                </div>
+                <div>
+                    {{#each game.genre}}
+                    <strong><a class="genre-span" href="/genre/{{{this}}}">{{this}}</a></strong>
+                    {{/each}}
+                </div>
+                <p class="desc-p">{{game.description}}</p>
+            </div>
+        </div>
+        <div class="gamepage-content">
+            <div>
                 <div class="side-content">
-                    <div id="image-holder"><img src="{{{game.filename}}}" width="207px" height="276px"></div>
-                    <span class="d-block side-content-headings" style="margin-top:30px">PLATFORMS</span>
+                <span class="d-block side-content-headings" style="margin-top: 0px;">PLATFORMS</span>
                     {{#each game.platforms}}
                     <a class="d-block side-content-span" href="/platforms/{{{this}}}">{{this}}</a>
                     {{/each}}
                     <span class="d-block side-content-headings">DATE RELEASED</span>
                     <span
                         class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">{{count}}</span>
-                        <div id="button-holder">
-                            {{#if user}}
-                            {{#if notListed}}
-                            <form class="add-list-form" method="POST" action="/addList/{{{game._id}}}">
-                                <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">+ Add to List</button>
-                                <div id="select-container">
-                                    <select name="status" class="select-status">
-                                        <option value="Playing">Playing</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Planning">Planning</option>
-                                        <option value="Dropped">Dropped</option>
-                                    </select>
-                                    <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
-                                </div>
-                            </form>
-                            {{else}}
-                            <form class="add-list-form" method="POST" action="/updateStatus/{{{game._id}}}">
-                                <button id="add-list-toggle" class="btn btn-primary add-to-list" type="button">Change Status</button>
-                                <div id="select-container">
-                                    <select name="status" class="select-status">
-                                        <option value="Playing">Playing</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Planning">Planning</option>
-                                        <option value="Dropped">Dropped</option>
-                                    </select>
-                                    <button id="submit-status" class="btn btn-primary submit-list" type="submit">Confirm</button> 
-                                </div>
-                            </form>
-                            {{/if}}
-                            {{/if}}
-                        </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="game-page">
-                    <h1 class="game-head">{{game.name}}</h1>
-                    <h4 class="game-publisher">{{game.publisher}}</h4>
-                    <h4 class="game-score">{{aveRating}} / 10</h4>
-                </div>
-                <div class="genre-list"></div>
-                    {{#each game.genre}}
-                    <a class="genre-span" href="/genre/{{{this}}}">{{this}}</a>
-                    {{/each}}
-                    <div class="game-desc">
-                        <h4 class="gamepage-label"><strong>Description</strong></h4>
-                        <p class="desc-p">{{game.description}}<br></p>
-                    </div>
-                </div>
-            </div>
-        <div class="row">
-            <div class="col">
-                <div class="game-review">
-                    <h4 class="review-label"><strong>Reviews</strong></h4>
-                    {{#if user}}
-                    {{#if notListed}}
-                    {{else}}
-                    <button id="add-review-toggle" class="btn btn-primary" type="button">{{#if isReviewed}}Edit Review {{else}}+ Add Review{{/if}}</button>
-                    <form id="review-form" method="POST" action="/addReview/{{{game._id}}}">
-                        <span class="review-score">Rating:</span> 
+            <div class="reviews">
+                <span class="review-head">Reviews</span>{{#if notListed}}{{else}}<i id="add-review-toggle" class="fa fa-edit edit-icon" {{#if user}}{{else}}onclick="unauthorized()"{{/if}}></i>{{/if}}
+                <form id="review-form" method="POST" action="/addReview/{{{game._id}}}">
+                        <strong>Rating:</strong> 
                         <select name="rating" class="rating-select">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -99,17 +85,28 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        <span class="review-score">/10</span>
                         <textarea class="review-area" name="review" placeholder="Write your insights here! (optional)"> {{#if isReviewed}}{{reviewedtext}}{{/if}}</textarea>
-                        <button id="add-review" class="btn btn-primary submit-review" type="submit">Submit</button> 
-                    </form>
-                    {{/if}}{{/if}}
-                    {{#each reviews}}
-                    <div class="review-content"><span class="d-block reviewer">{{this.username}}</span><span class="review-score">{{this.rating}} out of 10</span>
-                        <p class="review-p">{{this.review}}<br><br></p>
+                        <button data-id={{game._id}} id="add-review" class="btn btn-primary submit-review" type="submit">Submit</button> 
+                </form>
+                {{#if reviews}}
+                {{#each reviews}}
+                <div class="review-div">
+                    <div class="review-header">
+                        <strong style="color: #13c4a3; font-size: 16px;">{{this.username}}</strong>
+                        <div class="review-score">{{this.rating}}</div>
                     </div>
-                    {{/each}}
+                    {{#if review}}
+                        <p class="review-content">{{this.review}}</p>
+                    {{/if}}
                 </div>
+                {{/each}}
+                {{else}}
+                <div class="review-div">
+                    <div class="review-header">
+                        No reviews to show.
+                    </div>
+                </div>
+                {{/if}}
             </div>
         </div>
     </div>

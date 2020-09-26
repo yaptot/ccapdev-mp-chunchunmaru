@@ -534,7 +534,7 @@ const functions = {
         doc.save(async function(error){
             req.session.user = await userModel.findOne({username:username}).populate("gameList.game");
             console.log(req.session.user)
-            res.redirect('/')
+            res.status(200).send({msg: "Register Success!"});
         })
     },
 
@@ -592,7 +592,7 @@ const functions = {
             }
             else{
                 req.session.user = await userModel.findOne({username:user.username})
-                res.redirect("/viewGame/"+game)
+                res.status(200).send({msg:"Game successfully added as " + status});
             }
         })
     },
@@ -630,7 +630,7 @@ const functions = {
             })
             await user.save()
             req.session.user = user
-            res.redirect("/viewGame/"+id)
+            res.status(200).send({msg:"Status successfully set as " + status});
         }
     },
 

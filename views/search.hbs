@@ -16,7 +16,7 @@
     <div class="container">
         <div id="home-content">
             <div id="search-results">
-                <h3 class="text-left head-home">{{#if error_search}}No results found for"{{search}}"{{else}}Search results for "{{search}}"{{/if}}</h3>
+                <h3 class="text-left head-home">{{#if error_search}}No results found for "{{search}}"{{else}}Search results for "{{search}}"{{/if}}</h3>
                 <div class="d-flex justify-content-start flex-wrap justify-content-xl-start search-cards">
                     {{#each searchname}}
                     <a href="/viewGame/{{{this._id}}}">
