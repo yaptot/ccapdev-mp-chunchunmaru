@@ -52,7 +52,8 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@clus
     useUnifiedTopology: true
 }).then(() => console.log('connected'), err => console.log(err));
 
-// mongoose.connect(`mongodb://localhost/Gamerist`, {
+// mongoose.connect(
+//     'mongodb://localhost/Gamerist', {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
 // }).then(() => console.log('connected'), err => console.log(err));
