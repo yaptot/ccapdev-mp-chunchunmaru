@@ -212,6 +212,12 @@ function addGame() {
         data: {status: status},
         success: function() {
             ohSnap('Game successfully added to list!', {color: 'green'});
+            let reviewIcon = document.createElement('i');
+            reviewIcon.classList.add('fa');
+            reviewIcon.classList.add('fa-edit');
+            reviewIcon.classList.add('edit-icon');
+            
+            $("span.review-head").append(reviewIcon);
         },
         error: function() {
             ohSnap('Game could not be added to list.', {color: 'red'});

@@ -419,13 +419,17 @@ const functions = {
             aveRating = 0
         }
         console.log("notListed "+notListed)
+
+        if(aveRating < 10)
+            aveRating = aveRating.toFixed(1);
+
         res.render("gamePage",{
             user:req.session.user,
             reviews:reviews,
             isReviewed:isReviewed,
             reviewedtext:reviewedtext,
             game:JSON.parse(JSON.stringify(dbgame)),
-            aveRating:aveRating.toFixed(2),
+            aveRating:aveRating,
             count:ave.filter(e => e.game === dbgame.name)[0].count,
             notListed:notListed
         })
@@ -458,7 +462,11 @@ const functions = {
             }
         }
 
-        
+        let mean = ratings/tot;
+
+        if(mean < 10)
+            mean = mean.toFixed(1);
+
         res.render("profile",{
             user:user,
             isAdmin:isAdmin,
@@ -472,7 +480,7 @@ const functions = {
             completedPercent: (completed.length / total) * 100 + "%",
             planningPercent: (planning.length / total) * 100 + "%",
             droppedPercent: (dropped.length / total) * 100 + "%",
-            mean: (ratings/tot).toFixed(2)
+            mean: mean
         })
     },
 
