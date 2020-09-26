@@ -661,8 +661,9 @@ const functions = {
                 if(review)
                 e.review = review
             }
-            await user.save()
         })
+        await user.save();
+        req.session.user = user;
         res.redirect("/viewGame/"+id)
     }
 }

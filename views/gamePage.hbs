@@ -29,7 +29,7 @@
                     {{/if}}
                         <div class="input-group mb-3" style="margin-top: 20px;">
                             <div class="input-group-prepend">
-                                <button data-id="{{{game._id}}}" id="add-list-btn" class="btn btn-primary add-to-list" type="button" {{#if user}}{{#if notListed}} onclick="addGame()"{{else}} onclick="updateStatus()" {{/if}} {{else}} onclick="unauthorized()" {{/if}}>+ List</button>
+                                <button data-id="{{{game._id}}}" id="add-list-btn" class="btn btn-primary add-to-list" type="button" {{#if user}}{{#if notListed}}onclick="addGame()"{{else}} onclick="updateStatus()" {{/if}} {{else}} onclick="unauthorized()" {{/if}}>+ List</button>
                             </div>
                             <select id="select-status" class="custom-select select-status" name="status">
                                 <option value="Playing">Playing</option>

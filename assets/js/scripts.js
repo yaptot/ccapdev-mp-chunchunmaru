@@ -94,7 +94,7 @@ $(document).ready(function() {
          }
     })
 
-    $("#add-review-toggle").click(function() {
+    $("i#add-review-toggle").click(function() {
         $("form#review-form").toggle();
     })
 
@@ -205,7 +205,6 @@ function addGame() {
     let status = $("#select-status option:selected").val(); 
     console.log(status);
     let id = $("#add-list-btn").attr("data-id");
-
     $.ajax({
         url: '/addList/'+id,
         method: 'POST',
@@ -213,9 +212,14 @@ function addGame() {
         success: function() {
             ohSnap('Game successfully added to list!', {color: 'green'});
             let reviewIcon = document.createElement('i');
+            reviewIcon.setAttribute('id','add-review-toggle');
             reviewIcon.classList.add('fa');
             reviewIcon.classList.add('fa-edit');
             reviewIcon.classList.add('edit-icon');
+
+            reviewIcon.addEventListener('click', function() {
+                $("form#review-form").toggle();
+            })
             
             $("span.review-head").append(reviewIcon);
         },
