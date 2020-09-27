@@ -12,7 +12,8 @@ const functions = {
         if(userExists){
             res.status(401).send({msg: "User already exists"})
         }
-        return next()
+        else
+            return next()
     },
 
     validateUser    : async function(req, res, next){

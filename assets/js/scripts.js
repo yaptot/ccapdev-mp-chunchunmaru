@@ -217,6 +217,8 @@ function addGame() {
             reviewIcon.classList.add('fa-edit');
             reviewIcon.classList.add('edit-icon');
 
+            document.getElementById("add-list-btn").setAttribute('onclick', 'updateStatus()')
+
             reviewIcon.addEventListener('click', function() {
                 $("form#review-form").toggle();
             })
