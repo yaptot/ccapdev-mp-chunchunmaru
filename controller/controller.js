@@ -462,10 +462,14 @@ const functions = {
             }
         }
 
-        let mean = ratings/tot;
+        let mean = (ratings/tot)
+        if(mean > 0){
+            mean = mean.toFixed(2);
+        }
 
-        if(mean < 10)
-            mean = mean.toFixed(1);
+        else{
+            mean = 0;
+        }
 
         res.render("profile",{
             user:user,
@@ -480,7 +484,7 @@ const functions = {
             completedPercent: (completed.length / total) * 100 + "%",
             planningPercent: (planning.length / total) * 100 + "%",
             droppedPercent: (dropped.length / total) * 100 + "%",
-            mean: mean
+            mean:mean
         })
     },
 
