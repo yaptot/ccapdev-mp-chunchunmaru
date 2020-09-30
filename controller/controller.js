@@ -1,6 +1,7 @@
 const userModel = require('../models/userModel')
 const gameModel = require('../models/gameModel')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const { db } = require('../models/userModel');
 
 const saltRounds = 10;
 
@@ -237,17 +238,22 @@ const functions = {
         var dbgames = await gameModel.find({})
         var ratings = [], games = [];
         for (let i = 0; i < dbgames.length; i++) {
-            ratings.push({game: dbgames[i].name, rating: 0, count: 0});
+            ratings.push({game: dbgames[i].name, rating: 0, count: 0, total: 0});
             for (let j = 0; j < users.length; j++) {
-                let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name && e.game.rating !== null);
+                let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name);
                 if (index !== -1) {
                     if(!(users[j].gameList[index].rating === null)){
                         ratings[i].rating += users[j].gameList[index].rating;
                         ratings[i].count++;
-                    }   
+                    }
+                    ratings[i].total++;
                 }
             }
-            games.push({_id:dbgames[i]._id, game: dbgames[i].name, filename: dbgames[i].filename, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
+            games.push({_id:dbgames[i]._id, game: dbgames[i].name, filename: dbgames[i].filename, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count, total: ratings[i].total});
+        }
+
+        for(i=0;i<dbgames.length;i++){
+
         }
         ave = games
         count = games
@@ -258,7 +264,7 @@ const functions = {
         ave.sort(function(a,b){return b.count - a.count})
         ave.sort(function(a,b){ return b.aveRating - a.aveRating})
         count.sort(function(a,b){ return b.aveRating - a.aveRating})
-        count.sort(function(a,b){return b.count - a.count})
+        count.sort(function(a,b){return b.total - a.total})
         
         ave = ave.slice(0, 5)
         count = count.slice(0, 5)
@@ -390,21 +396,21 @@ const functions = {
                 }
             })
         }
-            
         try{
             for (let i = 0; i < dbgames.length; i++) {
-                ratings.push({game: dbgames[i].name, rating: 0, count: 0});
+                ratings.push({game: dbgames[i].name, rating: 0, count: 0, total: 0});
                 for (let j = 0; j < users.length; j++) {
-                    let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name && e.game.rating !== null);
+                    let index = users[j].gameList.findIndex(e => e.game.name === dbgames[i].name);
 
                     if (index !== -1) {
                         if(!(users[j].gameList[index].rating === null)){
                             ratings[i].rating += users[j].gameList[index].rating;
                             ratings[i].count++;
-                        }   
+                        }
+                        ratings[i].total++;
                     }
                 }
-                ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count});
+                ave.push({game: dbgames[i].name, aveRating: ratings[i].rating/ratings[i].count, count:ratings[i].count, total:ratings[i].total});
             }
             
             ave.sort((a, b) => b.aveRating - a.aveRating);
@@ -426,7 +432,7 @@ const functions = {
             reviewedtext:reviewedtext,
             game:JSON.parse(JSON.stringify(dbgame)),
             aveRating:(aveRating).toFixed(2),
-            count:ave.filter(e => e.game === dbgame.name)[0].count,
+            count:ave.filter(e => e.game === dbgame.name)[0].total,
             notListed:notListed
         })
     },
@@ -458,7 +464,15 @@ const functions = {
             }
         }
 
-        
+        let mean = (ratings/tot)
+        if(mean > 0){
+            mean = mean.toFixed(2)
+        }
+            
+        else{
+            mean = 0;
+        }
+            
         res.render("profile",{
             user:user,
             isAdmin:isAdmin,
@@ -472,7 +486,7 @@ const functions = {
             completedPercent: (completed.length / total) * 100 + "%",
             planningPercent: (planning.length / total) * 100 + "%",
             droppedPercent: (dropped.length / total) * 100 + "%",
-            mean:(ratings/tot).toFixed(2)
+            mean:mean
         })
     },
 
