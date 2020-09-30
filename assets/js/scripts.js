@@ -224,6 +224,11 @@ function addGame() {
             })
             
             $("span.review-head").append(reviewIcon);
+            
+            var cur = $("#count").html();
+            cur++;
+
+            $("#count").html(cur);
         },
         error: function() {
             ohSnap('Game could not be added to list.', {color: 'red'});

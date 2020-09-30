@@ -62,11 +62,11 @@
                 <div class="side-content">
                 <span class="d-block side-content-headings" style="margin-top: 0px;">PLATFORMS</span>
                     {{#each game.platforms}}
-                    <a class="d-block side-content-span" href="/platforms/{{{this}}}">{{this}}</a>
+                    <a class="d-block side-content-span" href="/platform/{{{this}}}">{{this}}</a>
                     {{/each}}
                     <span class="d-block side-content-headings">DATE RELEASED</span>
                     <span
-                        class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span class="d-block side-content-span">{{count}}</span>
+                        class="d-block side-content-span">{{formatDate game.publish}}</span><span class="d-block side-content-headings">PLAYERS</span><span id="count" class="d-block side-content-span">{{count}}</span>
                 </div>
             </div>
             <div class="reviews">
