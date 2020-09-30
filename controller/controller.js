@@ -419,6 +419,10 @@ const functions = {
             aveRating = 0
         }
         console.log("notListed "+notListed)
+
+        if(aveRating < 10)
+            aveRating = aveRating.toFixed(1);
+
         res.render("gamePage",{
             user:req.session.user,
             reviews:reviews,
@@ -458,7 +462,15 @@ const functions = {
             }
         }
 
-        
+        let mean = (ratings/tot)
+        if(mean > 0){
+            mean = mean.toFixed(2);
+        }
+
+        else{
+            mean = 0;
+        }
+
         res.render("profile",{
             user:user,
             isAdmin:isAdmin,
@@ -472,7 +484,7 @@ const functions = {
             completedPercent: (completed.length / total) * 100 + "%",
             planningPercent: (planning.length / total) * 100 + "%",
             droppedPercent: (dropped.length / total) * 100 + "%",
-            mean:ratings/tot
+            mean:mean
         })
     },
 
@@ -653,8 +665,9 @@ const functions = {
                 if(review)
                 e.review = review
             }
-            await user.save()
         })
+        await user.save();
+        req.session.user = user;
         res.redirect("/viewGame/"+id)
     }
 }
