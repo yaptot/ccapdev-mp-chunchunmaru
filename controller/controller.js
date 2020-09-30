@@ -435,7 +435,7 @@ const functions = {
             isReviewed:isReviewed,
             reviewedtext:reviewedtext,
             game:JSON.parse(JSON.stringify(dbgame)),
-            aveRating:(aveRating).toFixed(2),
+            aveRating:aveRating,
             count:ave.filter(e => e.game === dbgame.name)[0].total,
             notListed:notListed
         })
