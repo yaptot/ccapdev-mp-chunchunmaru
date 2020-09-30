@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Admin</title>
 </head>
 <body>
     {{#if user}}
@@ -23,11 +23,11 @@
             <label class="form-label">Description</label><textarea class="add-texta" name="gamedesc" placeholder="Add Description Here"></textarea>
             <label class="form-label">Genre</label>
             <div style="margin-top:10px;">
-                <input name="genre">
+                <input class="gameInput" name="genre">
             </div>
             <label class="form-label">Platforms</label>
             <div style="margin-top:10px;">
-                <input name="platform">
+                <input class="gameInput" name="platform">
             </div>
             <button type="button" id="submitGame" class="submit-game">Submit</button>
         </form>

@@ -94,7 +94,7 @@ $(document).ready(function() {
          }
     })
 
-    $("#add-review-toggle").click(function() {
+    $("i#add-review-toggle").click(function() {
         $("form#review-form").toggle();
     })
 
@@ -205,13 +205,30 @@ function addGame() {
     let status = $("#select-status option:selected").val(); 
     console.log(status);
     let id = $("#add-list-btn").attr("data-id");
-
     $.ajax({
         url: '/addList/'+id,
         method: 'POST',
         data: {status: status},
         success: function() {
             ohSnap('Game successfully added to list!', {color: 'green'});
+            let reviewIcon = document.createElement('i');
+            reviewIcon.setAttribute('id','add-review-toggle');
+            reviewIcon.classList.add('fa');
+            reviewIcon.classList.add('fa-edit');
+            reviewIcon.classList.add('edit-icon');
+
+            document.getElementById("add-list-btn").setAttribute('onclick', 'updateStatus()')
+
+            reviewIcon.addEventListener('click', function() {
+                $("form#review-form").toggle();
+            })
+            
+            $("span.review-head").append(reviewIcon);
+            
+            var cur = $("#count").html();
+            cur++;
+
+            $("#count").html(cur);
         },
         error: function() {
             ohSnap('Game could not be added to list.', {color: 'red'});

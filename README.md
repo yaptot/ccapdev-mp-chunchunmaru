@@ -1,6 +1,9 @@
 # Gamerist
 Gamerist is a web application that aims to allow a user to organize the list of games that the user has encountered.
 
+## Heroku Deployed App
+Link: https://goodgamerist.herokuapp.com/ [![Heroku App Status](http://heroku-shields.herokuapp.com/goodgamerist)](https://goodgamerist.herokuapp.com)  
+
 ## Prerequisites
 1. To set up the local web application, make sure the following are installed: 
 - [Node.js](https://nodejs.org/en/download/)
@@ -18,7 +21,7 @@ Gamerist is a web application that aims to allow a user to organize the list of 
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## Setting up and running locally
+## Setting up and Running Locally
 1. To run the server, open up the command prompt and navigate through the folder where the files are contained. To install the needed node_modules, use the command `npm i`
 2. Set up the Node.js server with `node index.js`
 3. Access the application using a web browser through `localhost` at port 3000 and populate the data by appending `/populate` to the URL. (`localhost:3000/populate`)

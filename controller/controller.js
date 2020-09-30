@@ -132,7 +132,7 @@ const functions = {
             name: "Danganronpa: Trigger Happy Havoc",
             publisher: "Spike Chunsoft Co., Ltd.",
             publish: new Date("2010-10-25"),
-            genre:["ADVENTURE","VISUAL NOVEL","MURDERY MYSTERY"],
+            genre:["ADVENTURE","VISUAL NOVEL","MURDER MYSTERY"],
             filename: "../assets/img/sample/danganronpa.jpg",
             description: "Hope's Peak Academy is home to Japan's best and brightest high school students—the beacons of hope for the future. But that hope suddenly dies when Makoto Naegi and his classmates find themselves imprisoned in the school, cut off from the outside world and subject to the whims of a strange, murderous little bear named Monokuma. He pits the students against each other, promising freedom to anyone who can murder a fellow classmate and get away with it. It's up to you to find out who Monokuma really is, and why you've been taken from the world you once knew. But be careful what you wish for—sometimes there’s nothing more deadly than the truth...",
             platforms: ["PSP","Android","iOS","PSVita","PC","PS4"]
@@ -140,7 +140,7 @@ const functions = {
             name: "Danganronpa 2: Goodbye Despair",
             publisher: "Spike Chunsoft Co., Ltd.",
             publish: new Date("2012-07-26"),
-            genre:["ADVENTURE","VISUAL NOVEL","MURDERY MYSTERY"],
+            genre:["ADVENTURE","VISUAL NOVEL","MURDER MYSTERY"],
             filename: "../assets/img/sample/danganronpa2.jpg",
             description: "Jabberwock Island – once a popular tourist destination, this now uninhabited island remains oddly pristine. You and your classmates at the elite Hope's Peak Academy have been brought to this island by your super-cute teacher for a “lovey-dovey, heart-throbbing school trip.” Everyone seems to be having fun in the sun...until Monokuma returns to restart his murderous game! Trapped on this island of mutual killing, your only hope of escape rests in solving the island’s mysteries. But be warned—sometimes the truth can be its own despair...",
             platforms: ["PSP","Android","iOS","PSVita","PC","PS4"]
@@ -148,7 +148,7 @@ const functions = {
             name: "Danganronpa v3:Killing Harmony",
             publisher: "Spike Chunsoft Co., Ltd.",
             publish: new Date("2017-01-12"),
-            genre:["ADVENTURE","VISUAL NOVEL","MURDERY MYSTERY"],
+            genre:["ADVENTURE","VISUAL NOVEL","MURDER MYSTERY"],
             filename: "../assets/img/sample/danganronpa3.jpg",
             description: "Welcome to a new world of Danganronpa, and prepare yourself for the biggest, most exhilarating episode yet. Set in a “psycho-cool” environment, a new cast of 16 characters find themselves kidnapped and imprisoned in a school. Inside, some will kill, some will die, and some will be punished. Reimagine what you thought high-stakes, fast-paced investigation was as you investigate twisted murder cases and condemn your new friends to death.",
             platforms: ["Android","iOS","PSVita","PC","PS4"]
@@ -425,6 +425,10 @@ const functions = {
             aveRating = 0
         }
         console.log("notListed "+notListed)
+
+        if(aveRating < 10)
+            aveRating = aveRating.toFixed(1);
+
         res.render("gamePage",{
             user:req.session.user,
             reviews:reviews,
@@ -466,13 +470,13 @@ const functions = {
 
         let mean = (ratings/tot)
         if(mean > 0){
-            mean = mean.toFixed(2)
+            mean = mean.toFixed(2);
         }
-            
+
         else{
             mean = 0;
         }
-            
+
         res.render("profile",{
             user:user,
             isAdmin:isAdmin,
@@ -667,8 +671,9 @@ const functions = {
                 if(review)
                 e.review = review
             }
-            await user.save()
         })
+        await user.save();
+        req.session.user = user;
         res.redirect("/viewGame/"+id)
     }
 }
