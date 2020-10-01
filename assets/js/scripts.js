@@ -160,7 +160,7 @@ $(document).ready(function() {
             method: 'post',
             data: {id},
             success: function() {
-                ohSnap("Game Deleted!", {color: 'green'});
+                ohSnap("Game Deleted!", {color: 'red'});
                 $("div[data-id="+id+"]").remove();
             },
             error: function() {
